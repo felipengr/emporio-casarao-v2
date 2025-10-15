@@ -2,73 +2,88 @@ backend:
   name: git-gateway
   branch: master
 
-media_folder: "public/images"   # onde os uploads serão salvos no repositório
-public_folder: "/images"        # como o Next serve essas imagens
+media_folder: "public/images"
+public_folder: "/images"
 publish_mode: editorial_workflow
 
 collections:
-  # ========== CONFIGURAÇÕES DO SITE ==========
+  # -------- Configuração do site (FILES) --------
   - name: "siteConfig"
     label: "Configuração do Site"
-    file: "content/site-config.json"
     editor: { preview: false }
-    fields:
-      - { label: "Nome do Site", name: "siteName", widget: "string" }
-      - { label: "Telefone", name: "phone", widget: "string", required: false }
-      - { label: "WhatsApp", name: "whatsapp", widget: "string", required: false }
-      - { label: "Endereço", name: "address", widget: "string", required: false }
-      - { label: "Instagram (URL)", name: "instagram", widget: "string", required: false }
-      - { label: "Logo", name: "logo", widget: "image", required: false }
+    files:
+      - name: "site-config"             # id interno
+        label: "Geral"
+        file: "content/site-config.json"
+        fields:
+          - { label: "Nome do Site", name: "siteName", widget: "string" }
+          - { label: "Telefone", name: "phone", widget: "string", required: false }
+          - { label: "WhatsApp", name: "whatsapp", widget: "string", required: false }
+          - { label: "Endereço", name: "address", widget: "string", required: false }
+          - { label: "Instagram (URL)", name: "instagram", widget: "string", required: false }
+          - { label: "Logo", name: "logo", widget: "image", required: false }
 
-  # ========== HERO DA HOME ==========
+  # -------- Hero (FILES) --------
   - name: "hero"
     label: "Hero (Home)"
-    file: "content/hero.json"
-    fields:
-      - { label: "Título", name: "title", widget: "string" }
-      - { label: "Subtítulo", name: "subtitle", widget: "text", required: false }
-      - { label: "Texto do Botão", name: "ctaText", widget: "string", required: false }
-      - { label: "Link do Botão", name: "ctaHref", widget: "string", required: false }
-      - { label: "Imagem de Fundo", name: "image", widget: "image" }
+    files:
+      - name: "hero"
+        label: "Hero"
+        file: "content/hero.json"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Subtítulo", name: "subtitle", widget: "text", required: false }
+          - { label: "Texto do Botão", name: "ctaText", widget: "string", required: false }
+          - { label: "Link do Botão", name: "ctaHref", widget: "string", required: false }
+          - { label: "Imagem de Fundo", name: "image", widget: "image" }
 
-  # ========== SEÇÃO SOBRE ==========
+  # -------- Sobre (FILES) --------
   - name: "sobre"
     label: "Sobre"
-    file: "content/sobre.md"
-    fields:
-      - { label: "Título", name: "title", widget: "string" }
-      - { label: "Imagem", name: "image", widget: "image", required: false }
-      - { label: "Conteúdo", name: "body", widget: "markdown" }
+    files:
+      - name: "sobre"
+        label: "Sobre"
+        file: "content/sobre.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Imagem", name: "image", widget: "image", required: false }
+          - { label: "Conteúdo", name: "body", widget: "markdown" }
 
-  # ========== PRODUTOS EM DESTAQUE ==========
+  # -------- Produtos em destaque (FILES) --------
   - name: "produtos"
     label: "Produtos em Destaque"
-    file: "content/produtos.json"
-    fields:
-      - { label: "Título da Seção", name: "title", widget: "string" }
-      - label: "Itens"
-        name: "items"
-        widget: "list"
+    files:
+      - name: "produtos"
+        label: "Produtos em Destaque"
+        file: "content/produtos.json"
         fields:
-          - { label: "Nome", name: "name", widget: "string" }
-          - { label: "Descrição", name: "description", widget: "text", required: false }
-          - { label: "Imagem", name: "image", widget: "image" }
-          - { label: "Link", name: "href", widget: "string", required: false }
+          - { label: "Título da Seção", name: "title", widget: "string" }
+          - label: "Itens"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Nome", name: "name", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text", required: false }
+              - { label: "Imagem", name: "image", widget: "image" }
+              - { label: "Link", name: "href", widget: "string", required: false }
 
-  # ========== GALERIA ==========
+  # -------- Galeria (FILES) --------
   - name: "galeria"
     label: "Galeria"
-    file: "content/galeria.json"
-    fields:
-      - { label: "Título da Seção", name: "title", widget: "string" }
-      - label: "Fotos"
-        name: "photos"
-        widget: "list"
+    files:
+      - name: "galeria"
+        label: "Galeria"
+        file: "content/galeria.json"
         fields:
-          - { label: "Imagem", name: "image", widget: "image" }
-          - { label: "Legenda", name: "caption", widget: "string", required: false }
+          - { label: "Título da Seção", name: "title", widget: "string" }
+          - label: "Fotos"
+            name: "photos"
+            widget: "list"
+            fields:
+              - { label: "Imagem", name: "image", widget: "image" }
+              - { label: "Legenda", name: "caption", widget: "string", required: false }
 
-  # ========== (OPCIONAL) BLOG/NOTÍCIAS ==========
+  # -------- (Opcional) Blog (FOLDER) --------
   - name: "posts"
     label: "Posts"
     folder: "content/posts"
@@ -77,7 +92,6 @@ collections:
     create: true
     slug: "{{slug}}"
     identifier_field: "slug"
-    summary: "{{title}}"
     fields:
       - { label: "Slug", name: "slug", widget: "string" }
       - { label: "Título", name: "title", widget: "string" }
