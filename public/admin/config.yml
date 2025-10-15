@@ -2,17 +2,17 @@ backend:
   name: git-gateway
   branch: master
 
+local_backend: true  # facilita testes locais (roda sem login; opcional)
 media_folder: "public/images"
 public_folder: "/images"
 publish_mode: editorial_workflow
 
 collections:
-  # -------- Configuração do site (FILES) --------
   - name: "siteConfig"
     label: "Configuração do Site"
     editor: { preview: false }
     files:
-      - name: "site-config"             # id interno
+      - name: "site-config"
         label: "Geral"
         file: "content/site-config.json"
         fields:
@@ -23,7 +23,6 @@ collections:
           - { label: "Instagram (URL)", name: "instagram", widget: "string", required: false }
           - { label: "Logo", name: "logo", widget: "image", required: false }
 
-  # -------- Hero (FILES) --------
   - name: "hero"
     label: "Hero (Home)"
     files:
@@ -37,7 +36,6 @@ collections:
           - { label: "Link do Botão", name: "ctaHref", widget: "string", required: false }
           - { label: "Imagem de Fundo", name: "image", widget: "image" }
 
-  # -------- Sobre (FILES) --------
   - name: "sobre"
     label: "Sobre"
     files:
@@ -49,7 +47,6 @@ collections:
           - { label: "Imagem", name: "image", widget: "image", required: false }
           - { label: "Conteúdo", name: "body", widget: "markdown" }
 
-  # -------- Produtos em destaque (FILES) --------
   - name: "produtos"
     label: "Produtos em Destaque"
     files:
@@ -67,7 +64,6 @@ collections:
               - { label: "Imagem", name: "image", widget: "image" }
               - { label: "Link", name: "href", widget: "string", required: false }
 
-  # -------- Galeria (FILES) --------
   - name: "galeria"
     label: "Galeria"
     files:
@@ -83,7 +79,6 @@ collections:
               - { label: "Imagem", name: "image", widget: "image" }
               - { label: "Legenda", name: "caption", widget: "string", required: false }
 
-  # -------- (Opcional) Blog (FOLDER) --------
   - name: "posts"
     label: "Posts"
     folder: "content/posts"
@@ -95,7 +90,7 @@ collections:
     fields:
       - { label: "Slug", name: "slug", widget: "string" }
       - { label: "Título", name: "title", widget: "string" }
-      - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD", dateFormat: "YYYY-MM-DD", timeFormat: false }
+      - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
       - { label: "Autor", name: "author", widget: "string", required: false }
       - label: "Tags"
         name: "tags"

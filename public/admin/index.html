@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <title>Empório Casarão CMS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Netlify Identity (para login no Git Gateway) -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <!-- Decap CMS v3 -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
   </head>
-  <body></body>
+  <body>
+    <!-- (Opcional: só precisa em produção na Netlify com Git Gateway) -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <!-- Decap CMS v3 – carregar DEPOIS do body existir -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  </body>
 </html>
