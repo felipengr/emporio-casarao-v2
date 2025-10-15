@@ -1,0 +1,17 @@
+{
+  "title": "Destaques da Casa",
+  "items": [
+    {
+      "name": "Nhoque caseiro",
+      "description": "Macio, artesanal e cheio de sabor.",
+      "image": "/images/nhoque.jpg",
+      "href": "#"
+    },
+    {
+      "name": "Doce de leite",
+      "description": "Feito com leite fresco e receita tradicional.",
+      "image": "/images/doce-leite.jpg",
+      "href": "#"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "title": "Galeria",
+  "photos": [
+    { "image": "/images/galeria-1.jpg", "caption": "Balcão do Empório" },
+    { "image": "/images/galeria-2.jpg", "caption": "Doces caseiros" }
+  ]
+}
