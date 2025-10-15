@@ -1143,6 +1143,11 @@
     "@emnapi/runtime" "^1.5.0"
     "@tybys/wasm-util" "^0.10.1"
 
+"@netlify/plugin-nextjs@^5.14.0":
+  version "5.14.0"
+  resolved "https://registry.yarnpkg.com/@netlify/plugin-nextjs/-/plugin-nextjs-5.14.0.tgz#ddd92a76291ab2aef495be295aa89838919913aa"
+  integrity sha512-8WEnVm88Ed6v6j/D0iqXDSnAW8Mf9P2CDVgBG3x2+vkiEI48X6Na7KnoQRyi6oulgA6foHIPWqgQIClsPiW20A==
+
 "@next/env@15.5.5":
   version "15.5.5"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-15.5.5.tgz#485121dba05d70c7f97c5745a2302334efb60506"
