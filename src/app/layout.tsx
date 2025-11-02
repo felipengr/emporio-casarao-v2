@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NetlifyIdentity from "@/components/Netlify/NetlifyIdentity";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({
@@ -10,8 +11,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Empório Casarão",
-  description: "Produtos artesanais de Piracaia - SP",
+  title: "Empório Casarão | Produtos Artesanais de Piracaia",
+  description: "Doces, antepastos, temperos e delícias locais de Piracaia - SP",
 };
 
 export default function RootLayout({
@@ -20,13 +21,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <body
-        suppressHydrationWarning
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased mx-auto max-w-[1920px]`}
       >
-        {children}
-        <NetlifyIdentity />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          {children}
+          <NetlifyIdentity />
+        </ThemeProvider>
       </body>
     </html>
   );

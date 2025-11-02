@@ -97,3 +97,19 @@ collections:
         widget: "list"
         field: { label: "Tag", name: "tag", widget: "string" }
       - { label: "Corpo", name: "body", widget: "markdown" }
+
+  - name: "parceiros"
+    label: "Parceiros"
+    files:
+      - name: "parceiros"
+        label: "Parceiros"
+        file: "content/parceiros.json"
+        fields:
+          - { label: "Título da Seção", name: "title", widget: "string" }
+          - { label: "Subtítulo", name: "subtitle", widget: "text", required: false }
+          - label: "Parceiros"
+            name: "parceiros"
+            widget: "list"
+            fields:
+              - { label: "Nome", name: "name", widget: "string" }
+              - { label: "Logo", name: "logo", widget: "image" }

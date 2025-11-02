@@ -1,7 +1,8 @@
 {
   "title": "Galeria",
   "photos": [
-    { "image": "/images/galeria-1.jpg", "caption": "Balcão do Empório" },
-    { "image": "/images/galeria-2.jpg", "caption": "Doces caseiros" }
+    { "image": "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=800&h=800&fit=crop", "caption": "Balcão do Empório" },
+    { "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=800&h=800&fit=crop", "caption": "Doces caseiros" },
+    { "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&h=800&fit=crop", "caption": "Produtos artesanais" }
   ]
 }
