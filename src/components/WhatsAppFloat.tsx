@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
+import { trackEvent } from '@/components/Analytics';
 
 interface WhatsAppFloatProps {
   phoneNumber: string;
@@ -10,11 +10,20 @@ interface WhatsAppFloatProps {
 export function WhatsAppFloat({ phoneNumber }: WhatsAppFloatProps) {
   const whatsappNumber = phoneNumber.replace(/\D/g, '');
   
+  const handleClick = () => {
+    trackEvent('contact_whatsapp', {
+      event_category: 'engagement',
+      event_label: 'WhatsApp Float Button',
+      location: 'floating_button',
+    });
+  };
+
   return (
     <Link
       href={`https://wa.me/55${whatsappNumber}?text=Olá! Vim através do site e gostaria de mais informações.`}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={handleClick}
       className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 group animate-bounce hover:animate-none"
       style={{ position: 'fixed' }}
     >
@@ -29,7 +38,6 @@ export function WhatsAppFloat({ phoneNumber }: WhatsAppFloatProps) {
         <span className="sr-only">Fale no WhatsApp</span>
       </div>
       
-      {/* Tooltip - apenas desktop */}
       <div className="hidden md:block absolute bottom-full right-0 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
         <div className="bg-gray-900 text-white text-sm rounded-lg py-2 px-4 whitespace-nowrap">
           Fale conosco!

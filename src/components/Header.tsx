@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Instagram, Phone } from 'lucide-react';
@@ -21,7 +23,6 @@ export function Header({ config }: HeaderProps) {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full border-b bg-background/98 backdrop-blur-md shadow-sm">
       <div className="container flex h-24 items-center justify-between">
-        {/* Logo */}
         <Link href="/" className="flex items-center">
           {config.logo ? (
             <Image
@@ -39,7 +40,6 @@ export function Header({ config }: HeaderProps) {
           )}
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <Link
             href="/#sobre"
@@ -73,12 +73,24 @@ export function Header({ config }: HeaderProps) {
           </Link>
         </nav>
 
-        {/* Right Side Buttons */}
         <div className="flex items-center space-x-3">
           <ThemeToggle />
           
-          {/* Desktop Only Buttons */}
-          <Button variant="ghost" size="icon" asChild className="hidden sm:flex">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            asChild 
+            className="hidden sm:flex"
+            onClick={() => {
+              if (typeof window !== 'undefined' && window.gtag) {
+                window.gtag('event', 'social_click', {
+                  event_category: 'engagement',
+                  event_label: 'Instagram Header',
+                  platform: 'instagram',
+                });
+              }
+            }}
+          >
             <Link
               href={config.instagram}
               target="_blank"
@@ -89,7 +101,20 @@ export function Header({ config }: HeaderProps) {
             </Link>
           </Button>
           
-          <Button asChild size="lg" className="hidden md:flex bg-primary hover:bg-primary/90">
+          <Button 
+            asChild 
+            size="lg" 
+            className="hidden md:flex bg-primary hover:bg-primary/90"
+            onClick={() => {
+              if (typeof window !== 'undefined' && window.gtag) {
+                window.gtag('event', 'contact_whatsapp', {
+                  event_category: 'engagement',
+                  event_label: 'WhatsApp Header',
+                  location: 'header',
+                });
+              }
+            }}
+          >
             <Link
               href={`https://wa.me/55${whatsappNumber}`}
               target="_blank"
@@ -100,7 +125,6 @@ export function Header({ config }: HeaderProps) {
             </Link>
           </Button>
 
-          {/* Mobile Menu */}
           <MobileMenu config={config} />
         </div>
       </div>
