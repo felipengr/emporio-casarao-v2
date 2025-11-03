@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
 declare global {
   interface Window {
@@ -13,7 +14,7 @@ declare global {
   }
 }
 
-export function Analytics({ measurementId }: { measurementId: string }) {
+function AnalyticsContent({ measurementId }: { measurementId: string }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -26,6 +27,14 @@ export function Analytics({ measurementId }: { measurementId: string }) {
   }, [pathname, searchParams, measurementId]);
 
   return null;
+}
+
+export function Analytics({ measurementId }: { measurementId: string }) {
+  return (
+    <Suspense fallback={null}>
+      <AnalyticsContent measurementId={measurementId} />
+    </Suspense>
+  );
 }
 
 // Função helper para enviar eventos customizados
