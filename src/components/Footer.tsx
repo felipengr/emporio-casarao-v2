@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Instagram, Phone, MapPin } from 'lucide-react';
+import { Instagram, Phone, MapPin, Code } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 
 interface FooterProps {
@@ -15,7 +15,7 @@ export function Footer({ config }: FooterProps) {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-secondary/50 border-t">
+    <footer className="w-full bg-secondary/50 border-t">
       <div className="container py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
@@ -38,14 +38,14 @@ export function Footer({ config }: FooterProps) {
               </div>
               <div className="flex items-center space-x-2">
                 <Instagram className="h-4 w-4 text-primary" />
-                <a 
+                <Link 
                   href={config.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   @emporiocasarao.piracaia
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -71,8 +71,23 @@ export function Footer({ config }: FooterProps) {
 
         <Separator className="my-8" />
 
-        <div className="text-center text-sm text-muted-foreground">
-          © {currentYear} {config.siteName}. Todos os direitos reservados.
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+          <p>
+            © {currentYear} {config.siteName}. Todos os direitos reservados.
+          </p>
+          
+          <div className="flex items-center gap-2">
+            <Code className="h-4 w-4" />
+            <span>Desenvolvido por</span>
+            <Link
+              href="https://nogueiradev.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-primary hover:underline transition-colors"
+            >
+              Felipe Nogueira
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

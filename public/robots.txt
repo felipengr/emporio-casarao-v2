@@ -1,0 +1,11 @@
+# robots.txt para Empório Casarão
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://emporiocasarao.com.br/sitemap.xml
+
+# Bloquear acesso ao CMS (admin)
+User-agent: *
+Disallow: /admin/
+Disallow: /api/

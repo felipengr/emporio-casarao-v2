@@ -18,7 +18,13 @@ const GA_MEASUREMENT_ID = "G-JN9ED1LCLY";
 
 export async function generateMetadata(): Promise<Metadata> {
   const seoConfig = await getSeoConfig();
-  return generateSeoMetadata(seoConfig);
+
+  return {
+    ...generateSeoMetadata(seoConfig),
+    alternates: {
+      canonical: 'https://emporiocasarao.com.br',
+    }
+  }
 }
 
 export default function RootLayout({
