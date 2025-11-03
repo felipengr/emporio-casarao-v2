@@ -4,11 +4,11 @@
   "parceiros": [
     {
       "name": "La Serenissima",
-      "logo": "https://www.leitesol.com.br/wp-content/themes/LaSerenissima/assets/img/logo.png"
+      "logo": "/images/la-serenissima.png"
     },
     {
       "name": "Viçosa",
-      "logo": "https://produtosvicosa.org.br/wp-content/themes/laticinios/img/logo_produtos_vicosa_cabecalho.png"
+      "logo": "/images/vicosa.png"
     },
     {
       "name": "Mexicacau",
