@@ -1,6 +1,5 @@
 ---
-title: "Nossa história"
-image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&h=600&fit=crop"
+title: Nossa história
+image: /images/i2.jpg
 ---
-
-Somos um empório de produtos artesanais em Piracaia. Prezamos por qualidade e sabor de verdade — traga a família e experimente!
+Somos um empório de Piracaia,ezamos por qualidade e sabor de verdade — traga a família e experimeni!
