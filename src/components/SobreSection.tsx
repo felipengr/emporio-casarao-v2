@@ -1,16 +1,18 @@
+'use client';
+
 import Image from 'next/image';
-import ReactMarkdown from 'react-markdown';
 import { AnimateOnScroll } from '@/components/AnimateOnScroll';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 interface SobreSectionProps {
-  data: {
-    title: string;
+  media: {
     image: string;
-    body: string;
   };
 }
 
-export function SobreSection({ data }: SobreSectionProps) {
+export function SobreSection({ media }: SobreSectionProps) {
+  const { t } = useLanguage();
+
   return (
     <section id="sobre" className="py-20 w-full">
       <div className="container">
@@ -18,8 +20,8 @@ export function SobreSection({ data }: SobreSectionProps) {
           <AnimateOnScroll>
             <div className="relative h-[400px] md:h-[500px] rounded-lg overflow-hidden">
               <Image
-                src={data.image}
-                alt={data.title}
+                src={media.image}
+                alt={t.sobre.title}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
@@ -29,9 +31,9 @@ export function SobreSection({ data }: SobreSectionProps) {
 
           <AnimateOnScroll delay={0.2}>
             <div className="space-y-6">
-              <h2 className="text-4xl font-bold">{data.title}</h2>
+              <h2 className="text-4xl font-bold">{t.sobre.title}</h2>
               <div className="prose prose-lg max-w-none">
-                <ReactMarkdown>{data.body}</ReactMarkdown>
+                <p>{t.sobre.body}</p>
               </div>
             </div>
           </AnimateOnScroll>

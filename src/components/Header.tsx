@@ -6,6 +6,8 @@ import { Instagram, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { MobileMenu } from '@/components/MobileMenu';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 interface HeaderProps {
   config: {
@@ -18,8 +20,9 @@ interface HeaderProps {
 }
 
 export function Header({ config }: HeaderProps) {
+  const { t } = useLanguage();
   const whatsappNumber = config.whatsapp.replace(/\D/g, '');
-  
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full border-b bg-background/98 backdrop-blur-md shadow-sm">
       <div className="container flex h-24 items-center justify-between">
@@ -45,37 +48,38 @@ export function Header({ config }: HeaderProps) {
             href="/#sobre"
             className="text-base font-medium transition-colors hover:text-primary"
           >
-            Sobre
+            {t.nav.sobre}
           </Link>
           <Link
             href="/#produtos"
             className="text-base font-medium transition-colors hover:text-primary"
           >
-            Produtos
+            {t.nav.produtos}
           </Link>
           <Link
             href="/#parceiros"
             className="text-base font-medium transition-colors hover:text-primary"
           >
-            Parceiros
+            {t.nav.parceiros}
           </Link>
           <Link
             href="/#galeria"
             className="text-base font-medium transition-colors hover:text-primary"
           >
-            Galeria
+            {t.nav.galeria}
           </Link>
           <Link
             href="/#contato"
             className="text-base font-medium transition-colors hover:text-primary"
           >
-            Contato
+            {t.nav.contato}
           </Link>
         </nav>
 
         <div className="flex items-center space-x-3">
+          <LanguageSwitcher />
           <ThemeToggle />
-          
+
           <Button 
             variant="ghost" 
             size="icon" 

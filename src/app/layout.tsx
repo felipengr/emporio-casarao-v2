@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import NetlifyIdentity from "@/components/Netlify/NetlifyIdentity";
 import { ThemeProvider } from "@/components/theme-provider";
+import { LanguageProvider } from "@/lib/i18n/LanguageContext";
 import { Analytics } from "@/components/Analytics";
-import { getSeoConfig } from "@/lib/cms";
+import { seoConfig } from "@/lib/site-content";
 import { generateSeoMetadata } from "@/components/SEO";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -16,9 +16,7 @@ const geistMono = Geist_Mono({
 
 const GA_MEASUREMENT_ID = "G-JN9ED1LCLY";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const seoConfig = await getSeoConfig();
-
+export function generateMetadata(): Metadata {
   return {
     ...generateSeoMetadata(seoConfig),
     alternates: {
@@ -58,9 +56,10 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          {children}
-          <NetlifyIdentity />
-          <Analytics measurementId={GA_MEASUREMENT_ID} />
+          <LanguageProvider>
+            {children}
+            <Analytics measurementId={GA_MEASUREMENT_ID} />
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

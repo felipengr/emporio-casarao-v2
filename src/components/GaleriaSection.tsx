@@ -1,23 +1,30 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
+import type { InstagramPhoto } from '@/lib/instagram';
 
-interface Photo {
+interface PhotoMedia {
   image: string;
-  caption?: string;
 }
 
 interface GaleriaSectionProps {
-  data: {
-    title: string;
-    photos: Photo[];
-  };
+  media: PhotoMedia[];
+  instagramPhotos?: InstagramPhoto[] | null;
 }
 
-export function GaleriaSection({ data }: GaleriaSectionProps) {
+export function GaleriaSection({ media, instagramPhotos }: GaleriaSectionProps) {
+  const { t } = useLanguage();
+  const MAX_PHOTOS = 6;
+  const photos = (
+    instagramPhotos && instagramPhotos.length > 0
+      ? instagramPhotos
+      : media.map((photo, index) => ({ ...photo, caption: t.galeria.captions[index] }))
+  ).slice(0, MAX_PHOTOS);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
@@ -25,19 +32,19 @@ export function GaleriaSection({ data }: GaleriaSectionProps) {
     if (!isAutoPlaying) return;
 
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % data.photos.length);
+      setCurrentIndex((prev) => (prev + 1) % photos.length);
     }, 4000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying, data.photos.length]);
+  }, [isAutoPlaying, photos.length]);
 
   const goToNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % data.photos.length);
+    setCurrentIndex((prev) => (prev + 1) % photos.length);
     setIsAutoPlaying(false);
   };
 
   const goToPrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + data.photos.length) % data.photos.length);
+    setCurrentIndex((prev) => (prev - 1 + photos.length) % photos.length);
     setIsAutoPlaying(false);
   };
 
@@ -49,27 +56,40 @@ export function GaleriaSection({ data }: GaleriaSectionProps) {
   return (
     <section id="galeria" className="py-20 bg-muted/30">
       <div className="container">
-        <h2 className="text-4xl font-bold text-center mb-12">{data.title}</h2>
-        
+        <h2 className="text-4xl font-bold text-center mb-12">{t.galeria.title}</h2>
+
         {/* Carousel */}
         <div className="relative max-w-4xl mx-auto">
           {/* Imagem principal */}
           <div className="relative aspect-[4/3] md:aspect-[16/9] overflow-hidden rounded-lg">
             <Image
-              src={data.photos[currentIndex].image}
-              alt={data.photos[currentIndex].caption || `Foto ${currentIndex + 1}`}
+              src={photos[currentIndex].image}
+              alt={photos[currentIndex].caption || `${currentIndex + 1}`}
               fill
               sizes="(max-width: 768px) 100vw, 896px"
               className="object-cover"
               priority={currentIndex === 0}
             />
-            
+
             {/* Overlay com caption */}
-            {data.photos[currentIndex].caption && (
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <p className="text-white text-lg font-medium text-center">
-                  {data.photos[currentIndex].caption}
-                </p>
+            {(photos[currentIndex].caption || 'permalink' in photos[currentIndex]) && (
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 space-y-2">
+                {photos[currentIndex].caption && (
+                  <p className="text-white text-lg font-medium text-center">
+                    {photos[currentIndex].caption}
+                  </p>
+                )}
+                {'permalink' in photos[currentIndex] && (
+                  <Link
+                    href={(photos[currentIndex] as InstagramPhoto).permalink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-1.5 text-white/80 hover:text-white text-sm transition-colors"
+                  >
+                    <Instagram className="h-4 w-4" />
+                    {t.galeria.viewOnInstagram}
+                  </Link>
+                )}
               </div>
             )}
           </div>
@@ -95,26 +115,31 @@ export function GaleriaSection({ data }: GaleriaSectionProps) {
 
           {/* Indicadores (bolinhas) */}
           <div className="flex justify-center gap-2 mt-6">
-            {data.photos.map((_, index) => (
+            {photos.map((photo, index) => (
               <button
-                key={index}
+                key={photo.image}
+                type="button"
                 onClick={() => goToSlide(index)}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   index === currentIndex
                     ? 'w-8 bg-primary'
                     : 'w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50'
                 }`}
-                aria-label={`Ir para foto ${index + 1}`}
+                aria-label={`${index + 1}`}
               />
             ))}
           </div>
         </div>
 
         {/* Miniaturas (apenas desktop) */}
-        <div className="hidden md:grid grid-cols-4 lg:grid-cols-5 gap-4 mt-8 max-w-4xl mx-auto">
-          {data.photos.map((photo, index) => (
+        <div
+          className="hidden md:grid gap-4 mt-8 max-w-4xl mx-auto"
+          style={{ gridTemplateColumns: `repeat(${photos.length}, minmax(0, 1fr))` }}
+        >
+          {photos.map((photo, index) => (
             <button
-              key={index}
+              key={photo.image}
+              type="button"
               onClick={() => goToSlide(index)}
               className={`relative aspect-square overflow-hidden rounded-lg transition-all duration-300 ${
                 index === currentIndex

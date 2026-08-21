@@ -11,6 +11,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
+import { languages } from '@/lib/i18n/translations';
 
 interface MobileMenuProps {
   config: {
@@ -20,15 +22,16 @@ interface MobileMenuProps {
 }
 
 export function MobileMenu({ config }: MobileMenuProps) {
+  const { language, setLanguage, t } = useLanguage();
   const [open, setOpen] = useState(false);
   const whatsappNumber = config.whatsapp.replace(/\D/g, '');
 
   const menuItems = [
-    { href: '/#sobre', label: 'Sobre' },
-    { href: '/#produtos', label: 'Produtos' },
-    { href: '/#parceiros', label: 'Parceiros' },
-    { href: '/#galeria', label: 'Galeria' },
-    { href: '/#contato', label: 'Contato' },
+    { href: '/#sobre', label: t.nav.sobre },
+    { href: '/#produtos', label: t.nav.produtos },
+    { href: '/#parceiros', label: t.nav.parceiros },
+    { href: '/#galeria', label: t.nav.galeria },
+    { href: '/#contato', label: t.nav.contato },
   ];
 
   const handleLinkClick = () => {
@@ -40,16 +43,16 @@ export function MobileMenu({ config }: MobileMenuProps) {
       <SheetTrigger asChild>
         <Button variant="ghost" size="icon" className="md:hidden">
           <Menu className="h-6 w-6" />
-          <span className="sr-only">Abrir menu</span>
+          <span className="sr-only">{t.mobileMenu.openMenu}</span>
         </Button>
       </SheetTrigger>
       <SheetContent side="right" className="w-[300px] sm:w-[400px]">
         <SheetHeader>
           <SheetTitle className="text-left text-2xl font-bold text-primary">
-            Menu
+            {t.mobileMenu.menu}
           </SheetTitle>
         </SheetHeader>
-        
+
         <nav className="flex flex-col space-y-4 mt-8">
           {menuItems.map((item) => (
             <Link
@@ -63,7 +66,27 @@ export function MobileMenu({ config }: MobileMenuProps) {
           ))}
         </nav>
 
-        <div className="mt-8 space-y-4">
+        <div className="flex items-center gap-2 mt-6">
+          {languages.map((option) => (
+            <button
+              key={option.code}
+              type="button"
+              onClick={() => setLanguage(option.code)}
+              aria-label={option.label}
+              aria-pressed={option.code === language}
+              className={`flex-1 flex items-center justify-center gap-1.5 rounded-md border py-2 text-sm transition-colors ${
+                option.code === language
+                  ? 'border-primary bg-primary/10 font-semibold text-primary'
+                  : 'border-border text-muted-foreground hover:bg-muted'
+              }`}
+            >
+              <span aria-hidden="true">{option.flag}</span>
+              <span>{option.code.toUpperCase()}</span>
+            </button>
+          ))}
+        </div>
+
+        <div className="mt-6 space-y-4">
           <Button
             asChild
             className="w-full bg-primary hover:bg-primary/90"
@@ -76,7 +99,7 @@ export function MobileMenu({ config }: MobileMenuProps) {
               onClick={handleLinkClick}
             >
               <Phone className="mr-2 h-5 w-5" />
-              Fale no WhatsApp
+              {t.mobileMenu.whatsappCta}
             </Link>
           </Button>
 
@@ -93,17 +116,17 @@ export function MobileMenu({ config }: MobileMenuProps) {
               onClick={handleLinkClick}
             >
               <Instagram className="mr-2 h-5 w-5" />
-              Siga no Instagram
+              {t.mobileMenu.instagramCta}
             </Link>
           </Button>
         </div>
 
-        <div className="absolute bottom-8 left-6 right-6 text-center">
+        <div className="mt-8 text-center">
           <p className="text-sm text-muted-foreground">
             Empório Casarão
           </p>
           <p className="text-xs text-muted-foreground mt-1">
-            Produtos artesanais de Piracaia
+            {t.mobileMenu.tagline}
           </p>
         </div>
       </SheetContent>

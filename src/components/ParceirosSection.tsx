@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 interface Parceiro {
   name: string;
@@ -9,14 +10,11 @@ interface Parceiro {
 }
 
 interface ParceirosSectionProps {
-  data: {
-    title: string;
-    subtitle?: string;
-    parceiros: Parceiro[];
-  };
+  media: Parceiro[];
 }
 
-export function ParceirosSection({ data }: ParceirosSectionProps) {
+export function ParceirosSection({ media }: ParceirosSectionProps) {
+  const { t } = useLanguage();
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -56,18 +54,16 @@ export function ParceirosSection({ data }: ParceirosSectionProps) {
   }, []);
 
   // Duplicar logos para efeito infinito
-  const duplicatedParceiros = [...data.parceiros, ...data.parceiros];
+  const duplicatedParceiros = [...media, ...media];
 
   return (
     <section id='parceiros' className="py-20 bg-muted/30">
       <div className="container">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">{data.title}</h2>
-          {data.subtitle && (
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {data.subtitle}
-            </p>
-          )}
+          <h2 className="text-4xl font-bold mb-4">{t.parceiros.title}</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            {t.parceiros.subtitle}
+          </p>
         </div>
 
         <div 
