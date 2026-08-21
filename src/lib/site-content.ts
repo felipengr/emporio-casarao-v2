@@ -28,21 +28,21 @@ export const seoConfig = {
 };
 
 export const heroMedia = {
-  image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1920&h=1080&fit=crop',
+  image: '/images/i1.jpg',
   ctaHref: '/#produtos',
 };
 
 export const sobreMedia = {
-  image: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&h=600&fit=crop',
+  image: '/images/i2.jpg',
 };
 
 export const produtosMedia = [
   {
-    image: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600&h=600&fit=crop',
+    image: '/images/img_0383.jpeg',
     href: '#',
   },
   {
-    image: 'https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=600&h=600&fit=crop',
+    image: '/images/img_6156.jpeg',
     href: '#',
   },
 ];
@@ -50,23 +50,31 @@ export const produtosMedia = [
 export const parceirosMedia = [
   {
     name: 'La Serenissima',
-    logo: 'https://via.placeholder.com/200x100/e8e1d5/8b7355?text=La+Serenissima',
-  },
-  {
-    name: 'Laticínios Vovozinha',
-    logo: 'https://via.placeholder.com/200x100/e8e1d5/8b7355?text=Vovozinha',
+    logo: '/images/la-serenissima.png',
   },
   {
     name: 'Viçosa',
-    logo: 'https://via.placeholder.com/200x100/e8e1d5/8b7355?text=Vicosa',
-  },
-  {
-    name: 'Portal de Cambuí',
-    logo: 'https://via.placeholder.com/200x100/e8e1d5/8b7355?text=Portal+Cambui',
+    logo: '/images/vicosa.png',
   },
   {
     name: 'Mexicacau',
-    logo: 'https://via.placeholder.com/200x100/e8e1d5/8b7355?text=Mexicacau',
+    logo: '/images/mexicacau.jpg',
+  },
+  {
+    name: 'Ibyrá',
+    logo: '/images/ibyra.jpg',
+  },
+  {
+    name: 'Geraldo Grespan',
+    logo: '/images/geraldo.jpg',
+  },
+  {
+    name: 'Utopi',
+    logo: '/images/utopi.jpg',
+  },
+  {
+    name: 'Araci',
+    logo: '/images/araci.jpg',
   },
 ];
 

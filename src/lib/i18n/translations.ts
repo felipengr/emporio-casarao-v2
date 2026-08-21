@@ -31,13 +31,13 @@ const pt = {
     tagline: 'Produtos artesanais de Piracaia',
   },
   hero: {
-    title: 'Artesanais de Piracaia',
-    subtitle: 'Doces, antepastos, temperos e delícias locais.',
+    title: 'Empório Casarão Piracaia',
+    subtitle: 'Produtos de ótima qualidade, muitos deles artesanais e todos de excelente qualidade.',
     ctaText: 'Conheça nossos produtos',
   },
   sobre: {
     title: 'Nossa história',
-    body: 'Somos um empório de produtos artesanais em Piracaia. Prezamos por qualidade e sabor de verdade — traga a família e experimente!',
+    body: 'Somos um empório de Piracaia, prezamos por qualidade e sabor de verdade — traga a família e experimente!',
   },
   produtos: {
     title: 'Destaques da Casa',
@@ -114,13 +114,13 @@ const en: typeof pt = {
     tagline: 'Artisanal products from Piracaia',
   },
   hero: {
-    title: 'Artisanal Flavors from Piracaia',
-    subtitle: 'Sweets, antipasti, spices and local delicacies.',
+    title: 'Empório Casarão Piracaia',
+    subtitle: 'Great quality products, many of them handmade and all crafted with excellence.',
     ctaText: 'See our products',
   },
   sobre: {
     title: 'Our story',
-    body: 'We are an artisanal grocery shop in Piracaia. We believe in real quality and flavor — bring the family and give it a try!',
+    body: 'We are a grocery shop in Piracaia. We value real quality and flavor — bring the family and give it a try!',
   },
   produtos: {
     title: 'House Specialties',
@@ -197,13 +197,13 @@ const es: typeof pt = {
     tagline: 'Productos artesanales de Piracaia',
   },
   hero: {
-    title: 'Sabores Artesanales de Piracaia',
-    subtitle: 'Dulces, entrantes, especias y delicias locales.',
+    title: 'Empório Casarão Piracaia',
+    subtitle: 'Productos de gran calidad, muchos de ellos artesanales y todos hechos con excelencia.',
     ctaText: 'Conoce nuestros productos',
   },
   sobre: {
     title: 'Nuestra historia',
-    body: 'Somos una tienda de productos artesanales en Piracaia. Valoramos la calidad y el sabor de verdad: ¡trae a la familia y pruébalo!',
+    body: 'Somos una tienda en Piracaia. Valoramos la calidad y el sabor de verdad: ¡trae a la familia y pruébalo!',
   },
   produtos: {
     title: 'Especialidades de la Casa',
