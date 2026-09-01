@@ -108,6 +108,7 @@ export function GaleriaSection({ media, instagramPhotos }: GaleriaSectionProps) 
             variant="ghost"
             size="icon"
             onClick={goToPrev}
+            aria-label={t.galeria.previousPhoto}
             className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full h-10 w-10 md:h-12 md:w-12"
           >
             <ChevronLeft className="h-6 w-6" />
@@ -117,25 +118,31 @@ export function GaleriaSection({ media, instagramPhotos }: GaleriaSectionProps) 
             variant="ghost"
             size="icon"
             onClick={goToNext}
+            aria-label={t.galeria.nextPhoto}
             className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full h-10 w-10 md:h-12 md:w-12"
           >
             <ChevronRight className="h-6 w-6" />
           </Button>
 
           {/* Indicadores (bolinhas) */}
-          <div className="flex justify-center gap-2 mt-6">
+          <div className="flex justify-center gap-1 mt-6">
             {photos.map((photo, index) => (
               <button
                 key={photo.image}
                 type="button"
                 onClick={() => goToSlide(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? 'w-8 bg-primary'
-                    : 'w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50'
-                }`}
-                aria-label={`${index + 1}`}
-              />
+                className="group flex h-6 w-6 items-center justify-center"
+                aria-label={t.galeria.goToPhoto.replace('{n}', String(index + 1))}
+                aria-current={index === currentIndex}
+              >
+                <span
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === currentIndex
+                      ? 'w-8 bg-primary'
+                      : 'w-2 bg-muted-foreground/30 group-hover:bg-muted-foreground/50'
+                  }`}
+                />
+              </button>
             ))}
           </div>
         </div>

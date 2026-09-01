@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { AccessibilityWidget } from "@/components/AccessibilityWidget";
 import { ThemeProvider } from "@/components/theme-provider";
 import { LanguageProvider } from "@/lib/i18n/LanguageContext";
 import { Analytics } from "@/components/Analytics";
@@ -81,6 +82,7 @@ export default function RootLayout({
         >
           <LanguageProvider>
             {children}
+            <AccessibilityWidget />
             <Analytics measurementId={GA_MEASUREMENT_ID} />
           </LanguageProvider>
         </ThemeProvider>
