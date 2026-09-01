@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { Instagram, Phone } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { ThemeToggle } from '@/components/theme-toggle';
-import { MobileMenu } from '@/components/MobileMenu';
-import { LanguageSwitcher } from '@/components/LanguageSwitcher';
-import { trackEvent } from '@/components/Analytics';
-import { useLanguage } from '@/lib/i18n/LanguageContext';
+import { Instagram, Phone } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { trackEvent } from "@/components/Analytics";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { MobileMenu } from "@/components/MobileMenu";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 interface HeaderProps {
   config: {
@@ -22,7 +22,7 @@ interface HeaderProps {
 
 export function Header({ config }: HeaderProps) {
   const { t } = useLanguage();
-  const whatsappNumber = config.whatsapp.replace(/\D/g, '');
+  const whatsappNumber = config.whatsapp.replace(/\D/g, "");
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full border-b bg-background/98 backdrop-blur-md shadow-sm">
@@ -32,10 +32,9 @@ export function Header({ config }: HeaderProps) {
             <Image
               src={config.logo}
               alt={config.siteName}
-              width={180}
-              height={80}
+              width={144}
+              height={64}
               className="h-16 w-auto dark:invert"
-              priority
             />
           ) : (
             <span className="text-2xl font-bold text-primary">
@@ -87,11 +86,11 @@ export function Header({ config }: HeaderProps) {
             asChild
             className="hidden sm:flex"
             onClick={() =>
-              trackEvent('social_click', {
-                event_category: 'engagement',
-                event_label: 'Instagram Header',
-                platform: 'instagram',
-                location: 'header',
+              trackEvent("social_click", {
+                event_category: "engagement",
+                event_label: "Instagram Header",
+                platform: "instagram",
+                location: "header",
               })
             }
           >
@@ -110,10 +109,10 @@ export function Header({ config }: HeaderProps) {
             size="lg"
             className="hidden md:flex bg-primary hover:bg-primary/90"
             onClick={() =>
-              trackEvent('contact_whatsapp', {
-                event_category: 'engagement',
-                event_label: 'WhatsApp Header',
-                location: 'header',
+              trackEvent("contact_whatsapp", {
+                event_category: "engagement",
+                event_label: "WhatsApp Header",
+                location: "header",
               })
             }
           >

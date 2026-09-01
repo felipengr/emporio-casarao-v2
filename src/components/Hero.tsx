@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
-import { useLanguage } from '@/lib/i18n/LanguageContext';
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 interface HeroProps {
   media: {
@@ -26,8 +26,9 @@ export function Hero({ media }: HeroProps) {
           sizes="100vw"
           className="object-cover"
           priority
+          fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/55" />
       </div>
 
       <div className="relative container h-full flex items-center">
@@ -35,7 +36,7 @@ export function Hero({ media }: HeroProps) {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
             {t.hero.title}
           </h1>
-          <p className="text-lg md:text-xl lg:text-2xl text-white/90">
+          <p className="text-lg md:text-xl lg:text-2xl text-white">
             {t.hero.subtitle}
           </p>
           <Button

@@ -94,6 +94,10 @@ const pt = {
     horarioDomingo: 'Domingo: 9h às 13h',
     instagramLabel: 'Instagram',
     cta: 'Fale conosco pelo WhatsApp',
+    comoChegar: 'Como chegar',
+    googleMaps: 'Google Maps',
+    waze: 'Waze',
+    appleMaps: 'Apple Maps',
   },
   footer: {
     description: 'Produtos artesanais de Piracaia com qualidade e sabor de verdade.',
@@ -207,6 +211,10 @@ const en: typeof pt = {
     horarioDomingo: 'Sunday: 9am – 1pm',
     instagramLabel: 'Instagram',
     cta: 'Chat with us on WhatsApp',
+    comoChegar: 'Get directions',
+    googleMaps: 'Google Maps',
+    waze: 'Waze',
+    appleMaps: 'Apple Maps',
   },
   footer: {
     description: 'Artisanal products from Piracaia with real quality and flavor.',
@@ -320,6 +328,10 @@ const es: typeof pt = {
     horarioDomingo: 'Domingo: 9h a 13h',
     instagramLabel: 'Instagram',
     cta: 'Chatea con nosotros por WhatsApp',
+    comoChegar: 'Cómo llegar',
+    googleMaps: 'Google Maps',
+    waze: 'Waze',
+    appleMaps: 'Apple Maps',
   },
   footer: {
     description: 'Productos artesanales de Piracaia con calidad y sabor de verdad.',

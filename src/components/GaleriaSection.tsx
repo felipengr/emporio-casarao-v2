@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Instagram } from 'lucide-react';
-import { trackEvent } from '@/components/Analytics';
-import { Button } from '@/components/ui/button';
-import { useLanguage } from '@/lib/i18n/LanguageContext';
-import type { InstagramPhoto } from '@/lib/instagram';
+import { ChevronLeft, ChevronRight, Instagram } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { trackEvent } from "@/components/Analytics";
+import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import type { InstagramPhoto } from "@/lib/instagram";
 
 interface PhotoMedia {
   image: string;
@@ -18,13 +18,19 @@ interface GaleriaSectionProps {
   instagramPhotos?: InstagramPhoto[] | null;
 }
 
-export function GaleriaSection({ media, instagramPhotos }: GaleriaSectionProps) {
+export function GaleriaSection({
+  media,
+  instagramPhotos,
+}: GaleriaSectionProps) {
   const { t } = useLanguage();
   const MAX_PHOTOS = 6;
   const photos = (
     instagramPhotos && instagramPhotos.length > 0
       ? instagramPhotos
-      : media.map((photo, index) => ({ ...photo, caption: t.galeria.captions[index] }))
+      : media.map((photo, index) => ({
+          ...photo,
+          caption: t.galeria.captions[index],
+        }))
   ).slice(0, MAX_PHOTOS);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -57,7 +63,9 @@ export function GaleriaSection({ media, instagramPhotos }: GaleriaSectionProps) 
   return (
     <section id="galeria" className="py-20 bg-muted/30">
       <div className="container">
-        <h2 className="text-4xl font-bold text-center mb-12">{t.galeria.title}</h2>
+        <h2 className="text-4xl font-bold text-center mb-12">
+          {t.galeria.title}
+        </h2>
 
         {/* Carousel */}
         <div className="relative max-w-4xl mx-auto">
@@ -69,29 +77,29 @@ export function GaleriaSection({ media, instagramPhotos }: GaleriaSectionProps) 
               fill
               sizes="(max-width: 768px) 100vw, 896px"
               className="object-cover"
-              priority={currentIndex === 0}
             />
 
             {/* Overlay com caption */}
-            {(photos[currentIndex].caption || 'permalink' in photos[currentIndex]) && (
+            {(photos[currentIndex].caption ||
+              "permalink" in photos[currentIndex]) && (
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 space-y-2">
                 {photos[currentIndex].caption && (
                   <p className="text-white text-lg font-medium text-center">
                     {photos[currentIndex].caption}
                   </p>
                 )}
-                {'permalink' in photos[currentIndex] && (
+                {"permalink" in photos[currentIndex] && (
                   <Link
                     href={(photos[currentIndex] as InstagramPhoto).permalink}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-1.5 text-white/80 hover:text-white text-sm transition-colors"
                     onClick={() =>
-                      trackEvent('social_click', {
-                        event_category: 'engagement',
-                        event_label: 'Instagram Galeria',
-                        platform: 'instagram',
-                        location: 'galeria',
+                      trackEvent("social_click", {
+                        event_category: "engagement",
+                        event_label: "Instagram Galeria",
+                        platform: "instagram",
+                        location: "galeria",
                       })
                     }
                   >
@@ -132,14 +140,17 @@ export function GaleriaSection({ media, instagramPhotos }: GaleriaSectionProps) 
                 type="button"
                 onClick={() => goToSlide(index)}
                 className="group flex h-6 w-6 items-center justify-center"
-                aria-label={t.galeria.goToPhoto.replace('{n}', String(index + 1))}
+                aria-label={t.galeria.goToPhoto.replace(
+                  "{n}",
+                  String(index + 1),
+                )}
                 aria-current={index === currentIndex}
               >
                 <span
                   className={`h-2 rounded-full transition-all duration-300 ${
                     index === currentIndex
-                      ? 'w-8 bg-primary'
-                      : 'w-2 bg-muted-foreground/30 group-hover:bg-muted-foreground/50'
+                      ? "w-8 bg-primary"
+                      : "w-2 bg-muted-foreground/30 group-hover:bg-muted-foreground/50"
                   }`}
                 />
               </button>
@@ -150,7 +161,9 @@ export function GaleriaSection({ media, instagramPhotos }: GaleriaSectionProps) 
         {/* Miniaturas (apenas desktop) */}
         <div
           className="hidden md:grid gap-4 mt-8 max-w-4xl mx-auto"
-          style={{ gridTemplateColumns: `repeat(${photos.length}, minmax(0, 1fr))` }}
+          style={{
+            gridTemplateColumns: `repeat(${photos.length}, minmax(0, 1fr))`,
+          }}
         >
           {photos.map((photo, index) => (
             <button
@@ -159,8 +172,8 @@ export function GaleriaSection({ media, instagramPhotos }: GaleriaSectionProps) 
               onClick={() => goToSlide(index)}
               className={`relative aspect-square overflow-hidden rounded-lg transition-all duration-300 ${
                 index === currentIndex
-                  ? 'ring-2 ring-primary ring-offset-2'
-                  : 'opacity-60 hover:opacity-100'
+                  ? "ring-2 ring-primary ring-offset-2"
+                  : "opacity-60 hover:opacity-100"
               }`}
             >
               <Image
