@@ -17,7 +17,7 @@ interface StructuredDataProps {
 export function StructuredData({ config, seoConfig }: StructuredDataProps) {
   const organizationSchema = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': ['LocalBusiness', 'GroceryStore'],
     name: config.siteName,
     image: seoConfig.ogImage || `${seoConfig.siteUrl}/images/logo.png`,
     description: seoConfig.siteDescription,
@@ -28,11 +28,15 @@ export function StructuredData({ config, seoConfig }: StructuredDataProps) {
       addressRegion: 'SP',
       addressCountry: 'BR',
     },
+    areaServed: {
+      '@type': 'City',
+      name: 'Piracaia',
+    },
     telephone: config.phone,
     url: seoConfig.siteUrl,
     sameAs: [config.instagram],
     priceRange: '$$',
-    servesCuisine: 'Produtos Artesanais',
+    keywords: 'artesanato de Piracaia, gastronomia de Piracaia, produtos artesanais, cultura local',
     '@id': seoConfig.siteUrl,
   };
 

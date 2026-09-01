@@ -11,6 +11,7 @@ declare global {
       targetId: string,
       config?: Record<string, any>
     ) => void;
+    dataLayer: Record<string, any>[];
   }
 }
 
@@ -37,12 +38,19 @@ export function Analytics({ measurementId }: { measurementId: string }) {
   );
 }
 
-// Função helper para enviar eventos customizados
+// Função helper para enviar eventos customizados.
+// Envia para o dataLayer (lido pelo Google Tag Manager) e também
+// direto pro gtag.js, para não perder o rastreio já existente no GA4.
 export const trackEvent = (
   eventName: string,
   eventParams?: Record<string, any>
 ) => {
-  if (typeof window !== 'undefined' && window.gtag) {
+  if (typeof window === 'undefined') return;
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: eventName, ...eventParams });
+
+  if (window.gtag) {
     window.gtag('event', eventName, eventParams);
   }
 };

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { Instagram, Phone, MapPin, Code } from 'lucide-react';
+import { trackEvent } from '@/components/Analytics';
 import { Separator } from '@/components/ui/separator';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 
@@ -47,6 +48,14 @@ export function Footer({ config }: FooterProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors"
+                  onClick={() =>
+                    trackEvent('social_click', {
+                      event_category: 'engagement',
+                      event_label: 'Instagram Footer',
+                      platform: 'instagram',
+                      location: 'footer',
+                    })
+                  }
                 >
                   @emporiocasarao.piracaia
                 </Link>

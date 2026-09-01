@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Instagram } from 'lucide-react';
+import { trackEvent } from '@/components/Analytics';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import type { InstagramPhoto } from '@/lib/instagram';
@@ -85,6 +86,14 @@ export function GaleriaSection({ media, instagramPhotos }: GaleriaSectionProps) 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-1.5 text-white/80 hover:text-white text-sm transition-colors"
+                    onClick={() =>
+                      trackEvent('social_click', {
+                        event_category: 'engagement',
+                        event_label: 'Instagram Galeria',
+                        platform: 'instagram',
+                        location: 'galeria',
+                      })
+                    }
                   >
                     <Instagram className="h-4 w-4" />
                     {t.galeria.viewOnInstagram}

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { MapPin, Phone, Clock, Instagram } from 'lucide-react';
+import { trackEvent } from '@/components/Analytics';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
@@ -66,6 +67,14 @@ export function ContatoSection({ config }: ContatoSectionProps) {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-primary hover:underline"
+                      onClick={() =>
+                        trackEvent('social_click', {
+                          event_category: 'engagement',
+                          event_label: 'Instagram Contato Section',
+                          platform: 'instagram',
+                          location: 'contato_section',
+                        })
+                      }
                     >
                       @emporiocasarao.piracaia
                     </Link>
@@ -82,6 +91,13 @@ export function ContatoSection({ config }: ContatoSectionProps) {
                   href={`https://wa.me/55${whatsappNumber}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackEvent('contact_whatsapp', {
+                      event_category: 'engagement',
+                      event_label: 'WhatsApp Contato Section',
+                      location: 'contato_section',
+                    })
+                  }
                 >
                   <Phone className="mr-2 h-4 w-4" />
                   {t.contato.cta}
@@ -92,7 +108,7 @@ export function ContatoSection({ config }: ContatoSectionProps) {
 
           <div className="relative h-[400px] rounded-lg overflow-hidden">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.1234567890!2d-46.3585!3d-23.0547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDAzJzE2LjkiUyA0NsKwMjEnMzAuNiJX!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+              src="https://www.google.com/maps?q=-23.054255,-46.357230&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -100,6 +116,7 @@ export function ContatoSection({ config }: ContatoSectionProps) {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="rounded-lg"
+              title={t.contato.title}
             />
           </div>
         </div>

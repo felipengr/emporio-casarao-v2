@@ -8,9 +8,9 @@ export const siteConfig = {
 };
 
 export const seoConfig = {
-  siteTitle: 'Empório Casarão | Produtos Artesanais de Piracaia - SP',
+  siteTitle: 'Empório Casarão | Artesanato e Gastronomia de Piracaia - SP',
   siteDescription:
-    'Empório de produtos artesanais em Piracaia. Doces caseiros, antepastos, temperos e delícias locais. Qualidade e sabor de verdade para você e sua família!',
+    'Empório de produtos artesanais em Piracaia, SP. Doces caseiros, queijos, antepastos e temperos que celebram a cultura e a gastronomia da nossa cidade. Venha conhecer!',
   keywords: [
     'empório piracaia',
     'produtos artesanais',
@@ -20,6 +20,15 @@ export const seoConfig = {
     'piracaia sp',
     'queijos artesanais',
     'empório casarão',
+    'gastronomia de piracaia',
+    'cultura de piracaia',
+    'artesanato de piracaia',
+    'artesanato piracaia sp',
+    'produtos artesanais piracaia sp',
+    'comida artesanal piracaia',
+    'turismo em piracaia',
+    'o que fazer em piracaia',
+    'sabores da serra da mantiqueira',
   ],
   siteUrl: 'https://emporiocasarao.com.br',
   ogImage: '/images/og-image.jpg',

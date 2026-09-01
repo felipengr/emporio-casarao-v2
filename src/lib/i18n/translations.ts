@@ -32,12 +32,26 @@ const pt = {
   },
   hero: {
     title: 'Empório Casarão Piracaia',
-    subtitle: 'Produtos de ótima qualidade, muitos deles artesanais e todos de excelente qualidade.',
+    subtitle: 'Artesanato, gastronomia e cultura de Piracaia em produtos de ótima qualidade, muitos deles artesanais, feitos com carinho para você e sua família.',
     ctaText: 'Conheça nossos produtos',
   },
   sobre: {
     title: 'Nossa história',
-    body: 'Somos um empório de Piracaia, prezamos por qualidade e sabor de verdade — traga a família e experimente!',
+    body: 'Toda grande história começa com pessoas, memórias e bons momentos compartilhados. O Empório Casarão nasceu do amor pela família, pelas nossas raízes e pelos sabores que fazem parte da nossa história. Aqui, cada produto é escolhido com carinho, valorizando qualidade, tradição e aquele sabor especial que transforma simples momentos em boas lembranças. Mais do que um empório, somos um pedacinho de casa em Piracaia.',
+    highlights: [
+      {
+        title: 'Cultura de Piracaia',
+        text: 'Levamos um pouco da história e das tradições da nossa cidade em cada visita ao Empório.',
+      },
+      {
+        title: 'Gastronomia local',
+        text: 'Sabores caseiros e receitas que carregam a memória afetiva da culinária de Piracaia.',
+      },
+      {
+        title: 'Artesanato feito à mão',
+        text: 'Produtos artesanais que valorizam o trabalho e as técnicas de produtores locais.',
+      },
+    ],
   },
   produtos: {
     title: 'Destaques da Casa',
@@ -115,12 +129,26 @@ const en: typeof pt = {
   },
   hero: {
     title: 'Empório Casarão Piracaia',
-    subtitle: 'Great quality products, many of them handmade and all crafted with excellence.',
+    subtitle: 'The craftsmanship, gastronomy, and culture of Piracaia in great quality products, many of them handmade with care for you and your family.',
     ctaText: 'See our products',
   },
   sobre: {
     title: 'Our story',
-    body: 'We are a grocery shop in Piracaia. We value real quality and flavor — bring the family and give it a try!',
+    body: 'Every great story begins with people, memories, and good moments shared together. Empório Casarão was born from a love of family, our roots, and the flavors that are part of our history. Here, every product is chosen with care, valuing quality, tradition, and that special taste that turns simple moments into fond memories. More than a grocery shop, we are a little piece of home in Piracaia.',
+    highlights: [
+      {
+        title: 'Piracaia\'s culture',
+        text: 'We carry a piece of our town\'s history and traditions into every visit to the shop.',
+      },
+      {
+        title: 'Local gastronomy',
+        text: 'Homemade flavors and recipes that hold the memory of Piracaia\'s cuisine.',
+      },
+      {
+        title: 'Handmade craftsmanship',
+        text: 'Artisanal products that celebrate the work and techniques of local producers.',
+      },
+    ],
   },
   produtos: {
     title: 'House Specialties',
@@ -198,12 +226,26 @@ const es: typeof pt = {
   },
   hero: {
     title: 'Empório Casarão Piracaia',
-    subtitle: 'Productos de gran calidad, muchos de ellos artesanales y todos hechos con excelencia.',
+    subtitle: 'Artesanía, gastronomía y cultura de Piracaia en productos de gran calidad, muchos de ellos artesanales, hechos con cariño para ti y tu familia.',
     ctaText: 'Conoce nuestros productos',
   },
   sobre: {
     title: 'Nuestra historia',
-    body: 'Somos una tienda en Piracaia. Valoramos la calidad y el sabor de verdad: ¡trae a la familia y pruébalo!',
+    body: 'Toda gran historia comienza con personas, recuerdos y buenos momentos compartidos. Empório Casarão nació del amor por la familia, por nuestras raíces y por los sabores que forman parte de nuestra historia. Aquí, cada producto se elige con cariño, valorando la calidad, la tradición y ese sabor especial que transforma simples momentos en buenos recuerdos. Más que una tienda, somos un pedacito de casa en Piracaia.',
+    highlights: [
+      {
+        title: 'Cultura de Piracaia',
+        text: 'Llevamos un poco de la historia y las tradiciones de nuestra ciudad en cada visita.',
+      },
+      {
+        title: 'Gastronomía local',
+        text: 'Sabores caseros y recetas que guardan la memoria afectiva de la cocina de Piracaia.',
+      },
+      {
+        title: 'Artesanía hecha a mano',
+        text: 'Productos artesanales que valoran el trabajo y las técnicas de productores locales.',
+      },
+    ],
   },
   produtos: {
     title: 'Especialidades de la Casa',

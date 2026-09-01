@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, Phone, Instagram } from 'lucide-react';
+import { trackEvent } from '@/components/Analytics';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -96,7 +97,14 @@ export function MobileMenu({ config }: MobileMenuProps) {
               href={`https://wa.me/55${whatsappNumber}`}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={handleLinkClick}
+              onClick={() => {
+                trackEvent('contact_whatsapp', {
+                  event_category: 'engagement',
+                  event_label: 'WhatsApp Mobile Menu',
+                  location: 'mobile_menu',
+                });
+                handleLinkClick();
+              }}
             >
               <Phone className="mr-2 h-5 w-5" />
               {t.mobileMenu.whatsappCta}
@@ -113,7 +121,15 @@ export function MobileMenu({ config }: MobileMenuProps) {
               href={config.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={handleLinkClick}
+              onClick={() => {
+                trackEvent('social_click', {
+                  event_category: 'engagement',
+                  event_label: 'Instagram Mobile Menu',
+                  platform: 'instagram',
+                  location: 'mobile_menu',
+                });
+                handleLinkClick();
+              }}
             >
               <Instagram className="mr-2 h-5 w-5" />
               {t.mobileMenu.instagramCta}

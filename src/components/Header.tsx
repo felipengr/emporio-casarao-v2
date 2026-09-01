@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { MobileMenu } from '@/components/MobileMenu';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { trackEvent } from '@/components/Analytics';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 interface HeaderProps {
@@ -80,20 +81,19 @@ export function Header({ config }: HeaderProps) {
           <LanguageSwitcher />
           <ThemeToggle />
 
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            asChild 
+          <Button
+            variant="ghost"
+            size="icon"
+            asChild
             className="hidden sm:flex"
-            onClick={() => {
-              if (typeof window !== 'undefined' && window.gtag) {
-                window.gtag('event', 'social_click', {
-                  event_category: 'engagement',
-                  event_label: 'Instagram Header',
-                  platform: 'instagram',
-                });
-              }
-            }}
+            onClick={() =>
+              trackEvent('social_click', {
+                event_category: 'engagement',
+                event_label: 'Instagram Header',
+                platform: 'instagram',
+                location: 'header',
+              })
+            }
           >
             <Link
               href={config.instagram}
@@ -104,20 +104,18 @@ export function Header({ config }: HeaderProps) {
               <Instagram className="h-5 w-5" />
             </Link>
           </Button>
-          
-          <Button 
-            asChild 
-            size="lg" 
+
+          <Button
+            asChild
+            size="lg"
             className="hidden md:flex bg-primary hover:bg-primary/90"
-            onClick={() => {
-              if (typeof window !== 'undefined' && window.gtag) {
-                window.gtag('event', 'contact_whatsapp', {
-                  event_category: 'engagement',
-                  event_label: 'WhatsApp Header',
-                  location: 'header',
-                });
-              }
-            }}
+            onClick={() =>
+              trackEvent('contact_whatsapp', {
+                event_category: 'engagement',
+                event_label: 'WhatsApp Header',
+                location: 'header',
+              })
+            }
           >
             <Link
               href={`https://wa.me/55${whatsappNumber}`}
