@@ -41,9 +41,9 @@ export function WhatsAppFloat({ phoneNumber }: WhatsAppFloatProps) {
       </div>
 
       <div className="hidden md:block absolute bottom-full right-0 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-        <div className="bg-gray-900 text-white text-sm rounded-lg py-2 px-4 whitespace-nowrap">
+        <div className="bg-foreground text-background text-sm rounded-lg py-2 px-4 whitespace-nowrap">
           {t.whatsappFloat.tooltip}
-          <div className="absolute bottom-0 right-6 transform translate-y-1/2 rotate-45 w-2 h-2 bg-gray-900" />
+          <div className="absolute bottom-0 right-6 transform translate-y-1/2 rotate-45 w-2 h-2 bg-foreground" />
         </div>
       </div>
     </Link>

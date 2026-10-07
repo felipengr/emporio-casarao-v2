@@ -24,14 +24,14 @@ export function Footer({ config }: FooterProps) {
       <div className="container py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="font-bold text-lg mb-4">{config.siteName}</h3>
+            <h3 className="text-xl mb-4">{config.siteName}</h3>
             <p className="text-sm text-muted-foreground">
               {t.footer.description}
             </p>
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-4">{t.footer.contatoTitle}</h3>
+            <h3 className="text-xl mb-4">{t.footer.contatoTitle}</h3>
             <div className="space-y-3 text-sm">
               <div className="flex items-start space-x-2">
                 <MapPin className="h-4 w-4 mt-0.5 text-primary" />
@@ -64,7 +64,7 @@ export function Footer({ config }: FooterProps) {
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-4">{t.footer.linksTitle}</h3>
+            <h3 className="text-xl mb-4">{t.footer.linksTitle}</h3>
             <nav className="flex flex-col space-y-2 text-sm">
               <Link href="/#sobre" className="text-muted-foreground hover:text-primary transition-colors">
                 {t.nav.sobre}

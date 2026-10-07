@@ -60,7 +60,7 @@ export function ParceirosSection({ media }: ParceirosSectionProps) {
     <section id='parceiros' className="py-20 bg-muted/30">
       <div className="container">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">{t.parceiros.title}</h2>
+          <h2 className="text-4xl mb-4">{t.parceiros.title}</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             {t.parceiros.subtitle}
           </p>
