@@ -28,8 +28,8 @@ export function MobileMenu({ config }: MobileMenuProps) {
   const whatsappNumber = config.whatsapp.replace(/\D/g, '');
 
   const menuItems = [
-    { href: '/#sobre', label: t.nav.sobre },
     { href: '/#produtos', label: t.nav.produtos },
+    { href: '/#sobre', label: t.nav.sobre },
     { href: '/#parceiros', label: t.nav.parceiros },
     { href: '/#galeria', label: t.nav.galeria },
     { href: '/#contato', label: t.nav.contato },

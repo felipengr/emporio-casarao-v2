@@ -39,6 +39,7 @@ export const seoConfig = {
 export const heroMedia = {
   image: '/images/i1.jpg',
   ctaHref: '/#produtos',
+  visitHref: '/#contato',
 };
 
 export const sobreMedia = {
