@@ -2,7 +2,7 @@ name: Version bump
 
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 permissions:
   contents: write
@@ -63,5 +63,5 @@ jobs:
           # [skip ci] evita que esse commit dispare outros workflows
           git commit -m "chore(release): v${{ steps.bump.outputs.version }} [skip ci]"
           git tag -a "v${{ steps.bump.outputs.version }}" -m "v${{ steps.bump.outputs.version }}"
-          git pull --rebase origin master
-          git push origin HEAD:master --follow-tags
+          git pull --rebase origin main
+          git push origin HEAD:main --follow-tags
