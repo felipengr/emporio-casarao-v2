@@ -8,11 +8,11 @@ export const languages: { code: Language; label: string; flag: string }[] = [
 
 const pt = {
   nav: {
-    sobre: 'Sobre',
-    produtos: 'Produtos',
+    sobre: 'Nossa história',
+    produtos: 'Sabores da casa',
     parceiros: 'Parceiros',
-    galeria: 'Galeria',
-    contato: 'Contato',
+    galeria: 'O Casarão',
+    contato: 'Visite-nos',
   },
   languageSwitcher: {
     label: 'Selecionar idioma',
@@ -44,10 +44,14 @@ const pt = {
     tagline: 'Produtos artesanais de Piracaia',
   },
   hero: {
-    title: 'Empório Casarão Piracaia',
-    subtitle: 'Artesanato, gastronomia e cultura de Piracaia em produtos de ótima qualidade, muitos deles artesanais, feitos com carinho para você e sua família.',
-    ctaText: 'Conheça nossos produtos',
+    eyebrow: 'Piracaia • Sabores e encontros',
+    title: 'Um pedacinho do interior, feito para você.',
+    subtitle: 'Sabores artesanais, histórias de família e boas descobertas no coração de Piracaia. Entre, escolha e sinta-se em casa.',
+    ctaText: 'Conheça nossos sabores',
+    ctaSecondary: 'Planeje sua visita',
+    imageAlt: 'Placa de Piracaia em frente ao Empório Casarão',
   },
+  faixa: ['Feito com carinho', 'Produtores selecionados', 'Sabores do interior'],
   sobre: {
     title: 'Nossa história',
     body: 'Toda grande história começa com pessoas, memórias e bons momentos compartilhados. O Empório Casarão nasceu do amor pela família, pelas nossas raízes e pelos sabores que fazem parte da nossa história. Aqui, cada produto é escolhido com carinho, valorizando qualidade, tradição e aquele sabor especial que transforma simples momentos em boas lembranças. Mais do que um empório, somos um pedacinho de casa em Piracaia.',
@@ -125,11 +129,11 @@ const pt = {
 
 const en: typeof pt = {
   nav: {
-    sobre: 'About',
-    produtos: 'Products',
+    sobre: 'Our story',
+    produtos: 'House flavors',
     parceiros: 'Partners',
-    galeria: 'Gallery',
-    contato: 'Contact',
+    galeria: 'The Casarão',
+    contato: 'Visit us',
   },
   languageSwitcher: {
     label: 'Select language',
@@ -161,10 +165,14 @@ const en: typeof pt = {
     tagline: 'Artisanal products from Piracaia',
   },
   hero: {
-    title: 'Empório Casarão Piracaia',
-    subtitle: 'The craftsmanship, gastronomy, and culture of Piracaia in great quality products, many of them handmade with care for you and your family.',
-    ctaText: 'See our products',
+    eyebrow: 'Piracaia • Flavors and gatherings',
+    title: 'A little piece of the countryside, made for you.',
+    subtitle: 'Artisanal flavors, family stories and good discoveries in the heart of Piracaia. Come in, pick your favorites and feel at home.',
+    ctaText: 'Discover our flavors',
+    ctaSecondary: 'Plan your visit',
+    imageAlt: 'Piracaia sign in front of Empório Casarão',
   },
+  faixa: ['Made with care', 'Selected producers', 'Countryside flavors'],
   sobre: {
     title: 'Our story',
     body: 'Every great story begins with people, memories, and good moments shared together. Empório Casarão was born from a love of family, our roots, and the flavors that are part of our history. Here, every product is chosen with care, valuing quality, tradition, and that special taste that turns simple moments into fond memories. More than a grocery shop, we are a little piece of home in Piracaia.',
@@ -242,11 +250,11 @@ const en: typeof pt = {
 
 const es: typeof pt = {
   nav: {
-    sobre: 'Nosotros',
-    produtos: 'Productos',
+    sobre: 'Nuestra historia',
+    produtos: 'Sabores de la casa',
     parceiros: 'Socios',
-    galeria: 'Galería',
-    contato: 'Contacto',
+    galeria: 'El Casarão',
+    contato: 'Visítanos',
   },
   languageSwitcher: {
     label: 'Seleccionar idioma',
@@ -278,10 +286,14 @@ const es: typeof pt = {
     tagline: 'Productos artesanales de Piracaia',
   },
   hero: {
-    title: 'Empório Casarão Piracaia',
-    subtitle: 'Artesanía, gastronomía y cultura de Piracaia en productos de gran calidad, muchos de ellos artesanales, hechos con cariño para ti y tu familia.',
-    ctaText: 'Conoce nuestros productos',
+    eyebrow: 'Piracaia • Sabores y encuentros',
+    title: 'Un pedacito del interior, hecho para ti.',
+    subtitle: 'Sabores artesanales, historias de familia y buenos descubrimientos en el corazón de Piracaia. Entra, elige y siéntete como en casa.',
+    ctaText: 'Conoce nuestros sabores',
+    ctaSecondary: 'Planea tu visita',
+    imageAlt: 'Letrero de Piracaia frente al Empório Casarão',
   },
+  faixa: ['Hecho con cariño', 'Productores seleccionados', 'Sabores del interior'],
   sobre: {
     title: 'Nuestra historia',
     body: 'Toda gran historia comienza con personas, recuerdos y buenos momentos compartidos. Empório Casarão nació del amor por la familia, por nuestras raíces y por los sabores que forman parte de nuestra historia. Aquí, cada producto se elige con cariño, valorando la calidad, la tradición y ese sabor especial que transforma simples momentos en buenos recuerdos. Más que una tienda, somos un pedacito de casa en Piracaia.',

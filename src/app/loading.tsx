@@ -10,18 +10,17 @@ export default function Loading() {
   return (
     <>
       {/* Header Skeleton */}
-      <header className="fixed top-0 left-0 right-0 z-50 w-full border-b bg-background/98 backdrop-blur-md shadow-sm">
-        <div className="container flex h-24 items-center justify-between">
-          <Skeleton className="h-16 w-40" />
-          <div className="hidden md:flex items-center space-x-8">
-            {[1, 2, 3, 4, 5].map((i) => (
-              <Skeleton key={i} className="h-4 w-20" />
+      <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur-md">
+        <div className="container flex h-20 items-center justify-between">
+          <Skeleton className="h-12 w-32" />
+          <div className="hidden md:flex items-center gap-8">
+            {[1, 2, 3, 4].map((i) => (
+              <Skeleton key={i} className="h-4 w-24" />
             ))}
           </div>
-          <div className="flex items-center space-x-3">
-            <Skeleton className="h-10 w-10 rounded-full" />
-            <Skeleton className="h-10 w-10 rounded-full" />
-            <Skeleton className="h-10 w-32 rounded-md hidden md:block" />
+          <div className="flex items-center gap-3">
+            <Skeleton className="h-9 w-9 rounded-full" />
+            <Skeleton className="h-12 w-32 rounded-full hidden md:block" />
           </div>
         </div>
       </header>

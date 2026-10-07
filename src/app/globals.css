@@ -75,6 +75,16 @@
 }
 
 @layer base {
+  /* Compensa o cabeçalho fixo ao navegar pelas âncoras */
+  html {
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+
   h1,
   h2,
   h3 {
