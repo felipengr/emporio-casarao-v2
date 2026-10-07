@@ -30,7 +30,6 @@ export function MobileMenu({ config }: MobileMenuProps) {
   const menuItems = [
     { href: '/#produtos', label: t.nav.produtos },
     { href: '/#sobre', label: t.nav.sobre },
-    { href: '/#parceiros', label: t.nav.parceiros },
     { href: '/#galeria', label: t.nav.galeria },
     { href: '/#contato', label: t.nav.contato },
   ];

@@ -1,7 +1,6 @@
 import { HeroSkeleton } from '@/components/skeletons/HeroSkeleton';
 import { SobreSkeleton } from '@/components/skeletons/SobreSkeleton';
 import { ProdutosSkeleton } from '@/components/skeletons/ProdutosSkeleton';
-import { ParceirosSkeleton } from '@/components/skeletons/ParceirosSkeleton';
 import { GaleriaSkeleton } from '@/components/skeletons/GaleriaSkeleton';
 import { ContatoSkeleton } from '@/components/skeletons/ContatoSkeleton';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -29,7 +28,6 @@ export default function Loading() {
         <HeroSkeleton />
         <ProdutosSkeleton />
         <SobreSkeleton />
-        <ParceirosSkeleton />
         <GaleriaSkeleton />
         <ContatoSkeleton />
       </main>

@@ -10,7 +10,6 @@ const pt = {
   nav: {
     sobre: 'Nossa história',
     produtos: 'Sabores da casa',
-    parceiros: 'Parceiros',
     galeria: 'O Casarão',
     contato: 'Visite-nos',
   },
@@ -93,9 +92,6 @@ const pt = {
     readLess: 'Mostrar menos',
     imageAlt: 'Foto de família emoldurada no Empório Casarão',
   },
-  parceiros: {
-    eyebrow: 'Quem faz parte da nossa mesa',
-  },
   galeria: {
     eyebrow: 'Por aqui, sempre tem uma boa descoberta',
     title: 'Um pouco do nosso dia a dia',
@@ -137,7 +133,6 @@ const en: typeof pt = {
   nav: {
     sobre: 'Our story',
     produtos: 'House flavors',
-    parceiros: 'Partners',
     galeria: 'The Casarão',
     contato: 'Visit us',
   },
@@ -220,9 +215,6 @@ const en: typeof pt = {
     readLess: 'Show less',
     imageAlt: 'Framed family photo at Empório Casarão',
   },
-  parceiros: {
-    eyebrow: 'Who shares our table',
-  },
   galeria: {
     eyebrow: 'There is always something new to discover',
     title: 'A glimpse of our days',
@@ -264,7 +256,6 @@ const es: typeof pt = {
   nav: {
     sobre: 'Nuestra historia',
     produtos: 'Sabores de la casa',
-    parceiros: 'Socios',
     galeria: 'El Casarão',
     contato: 'Visítanos',
   },
@@ -346,9 +337,6 @@ const es: typeof pt = {
     readMore: 'Conoce nuestra historia',
     readLess: 'Mostrar menos',
     imageAlt: 'Foto de familia enmarcada en el Empório Casarão',
-  },
-  parceiros: {
-    eyebrow: 'Quienes forman parte de nuestra mesa',
   },
   galeria: {
     eyebrow: 'Por aquí siempre hay algo bueno por descubrir',
