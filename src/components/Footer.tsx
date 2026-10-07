@@ -1,17 +1,14 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { Instagram, Phone, MapPin, Code } from 'lucide-react';
-import { trackEvent } from '@/components/Analytics';
-import { Separator } from '@/components/ui/separator';
-import { useLanguage } from '@/lib/i18n/LanguageContext';
+import Link from "next/link";
+import { trackEvent } from "@/components/Analytics";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 interface FooterProps {
   config: {
     siteName: string;
-    address: string;
-    phone: string;
     instagram: string;
+    instagramHandle: string;
   };
 }
 
@@ -20,87 +17,41 @@ export function Footer({ config }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-secondary/50 border-t">
-      <div className="container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <h3 className="text-xl mb-4">{config.siteName}</h3>
-            <p className="text-sm text-muted-foreground">
-              {t.footer.description}
-            </p>
-          </div>
+    <footer className="w-full">
+      <div className="container pt-4 pb-10 md:pb-12">
+        <p className="font-serif text-2xl">{config.siteName}</p>
+        <Link
+          href={config.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3 inline-block text-sm text-muted-foreground transition-colors hover:text-highlight"
+          onClick={() =>
+            trackEvent("social_click", {
+              event_category: "engagement",
+              event_label: "Instagram Footer",
+              platform: "instagram",
+              location: "footer",
+            })
+          }
+        >
+          {config.instagramHandle}
+        </Link>
 
-          <div>
-            <h3 className="text-xl mb-4">{t.footer.contatoTitle}</h3>
-            <div className="space-y-3 text-sm">
-              <div className="flex items-start space-x-2">
-                <MapPin className="h-4 w-4 mt-0.5 text-primary" />
-                <span className="text-muted-foreground">{config.address}</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Phone className="h-4 w-4 text-primary" />
-                <span className="text-muted-foreground">{config.phone}</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Instagram className="h-4 w-4 text-primary" />
-                <Link
-                  href={config.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                  onClick={() =>
-                    trackEvent('social_click', {
-                      event_category: 'engagement',
-                      event_label: 'Instagram Footer',
-                      platform: 'instagram',
-                      location: 'footer',
-                    })
-                  }
-                >
-                  @emporiocasarao.piracaia
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="text-xl mb-4">{t.footer.linksTitle}</h3>
-            <nav className="flex flex-col space-y-2 text-sm">
-              <Link href="/#sobre" className="text-muted-foreground hover:text-primary transition-colors">
-                {t.nav.sobre}
-              </Link>
-              <Link href="/#produtos" className="text-muted-foreground hover:text-primary transition-colors">
-                {t.nav.produtos}
-              </Link>
-              <Link href="/#galeria" className="text-muted-foreground hover:text-primary transition-colors">
-                {t.nav.galeria}
-              </Link>
-              <Link href="/#contato" className="text-muted-foreground hover:text-primary transition-colors">
-                {t.nav.contato}
-              </Link>
-            </nav>
-          </div>
-        </div>
-
-        <Separator className="my-8" />
-
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+        <div className="mt-8 flex flex-col gap-2 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {currentYear} {config.siteName}. {t.footer.rights}
+            © {currentYear} • {t.footer.tagline}
           </p>
-
-          <div className="flex items-center gap-2">
-            <Code className="h-4 w-4" />
-            <span>{t.footer.developedBy}</span>
+          <p>
+            {t.footer.developedBy}{" "}
             <Link
               href="https://nogueiradev.com.br"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold text-primary hover:underline transition-colors"
+              className="text-foreground transition-colors hover:text-highlight"
             >
               Felipe Nogueira
             </Link>
-          </div>
+          </p>
         </div>
       </div>
     </footer>

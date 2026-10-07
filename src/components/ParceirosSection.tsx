@@ -1,97 +1,38 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { useEffect, useRef } from 'react';
-import { useLanguage } from '@/lib/i18n/LanguageContext';
-
-interface Parceiro {
-  name: string;
-  logo: string;
-}
+import { Fragment } from "react";
+import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 interface ParceirosSectionProps {
-  media: Parceiro[];
+  parceiros: string[];
 }
 
-export function ParceirosSection({ media }: ParceirosSectionProps) {
+export function ParceirosSection({ parceiros }: ParceirosSectionProps) {
   const { t } = useLanguage();
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-
-    let scrollInterval: NodeJS.Timeout;
-    let isPaused = false;
-
-    const startScroll = () => {
-      scrollInterval = setInterval(() => {
-        if (!isPaused && scrollContainer) {
-          scrollContainer.scrollLeft += 1;
-          
-          // Reinicia quando chega no fim
-          if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
-            scrollContainer.scrollLeft = 0;
-          }
-        }
-      }, 20);
-    };
-
-    startScroll();
-
-    // Pausa ao passar o mouse
-    scrollContainer.addEventListener('mouseenter', () => {
-      isPaused = true;
-    });
-
-    scrollContainer.addEventListener('mouseleave', () => {
-      isPaused = false;
-    });
-
-    return () => {
-      clearInterval(scrollInterval);
-    };
-  }, []);
-
-  // Duplicar logos para efeito infinito
-  const duplicatedParceiros = [...media, ...media];
 
   return (
-    <section id='parceiros' className="py-20 bg-muted/30">
-      <div className="container">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl mb-4">{t.parceiros.title}</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t.parceiros.subtitle}
-          </p>
-        </div>
-
-        <div 
-          ref={scrollRef}
-          className="overflow-hidden relative"
-          style={{ 
-            maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)'
-          }}
-        >
-          <div className="flex gap-16 py-8">
-            {duplicatedParceiros.map((parceiro, index) => (
-              <div
-                key={`${parceiro.name}-${index}`}
-                className="flex-shrink-0 w-40 h-24 relative grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
-              >
-                <Image
-                  src={parceiro.logo}
-                  alt={parceiro.name}
-                  fill
-                  sizes="160px"
-                  className="object-contain"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+    <section id="parceiros" className="py-10 md:py-14">
+      <AnimateOnScroll className="container">
+        <h2 className="text-[11px] font-sans uppercase tracking-[0.12em] text-highlight">
+          {t.parceiros.eyebrow}
+        </h2>
+        <p className="mt-4 font-serif text-2xl leading-snug text-muted-foreground md:text-[27px]">
+          {parceiros.map((nome, index) => (
+            <Fragment key={nome}>
+              {index > 0 && (
+                <>
+                  {" "}
+                  <span aria-hidden="true" className="mx-1 md:mx-1.5">
+                    •
+                  </span>{" "}
+                </>
+              )}
+              <span className="whitespace-nowrap">{nome}</span>
+            </Fragment>
+          ))}
+        </p>
+      </AnimateOnScroll>
     </section>
   );
 }

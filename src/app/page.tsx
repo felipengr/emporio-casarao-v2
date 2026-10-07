@@ -15,7 +15,7 @@ import {
   heroMedia,
   sobreMedia,
   produtosMedia,
-  parceirosMedia,
+  parceiros,
   galeriaMedia,
 } from '@/lib/site-content';
 import { getInstagramPhotos } from '@/lib/instagram';
@@ -29,10 +29,14 @@ export default async function Home() {
       <Header config={siteConfig} />
       <main>
         <Hero media={heroMedia} />
+        <ProdutosDestaque media={produtosMedia} whatsapp={siteConfig.whatsapp} />
         <SobreSection media={sobreMedia} />
-        <ProdutosDestaque media={produtosMedia} />
-        <ParceirosSection media={parceirosMedia} />
-        <GaleriaSection media={galeriaMedia} instagramPhotos={instagramPhotos} />
+        <ParceirosSection parceiros={parceiros} />
+        <GaleriaSection
+          media={galeriaMedia}
+          instagramPhotos={instagramPhotos}
+          instagramUrl={siteConfig.instagram}
+        />
         <ContatoSection config={siteConfig} />
       </main>
       <Footer config={siteConfig} />

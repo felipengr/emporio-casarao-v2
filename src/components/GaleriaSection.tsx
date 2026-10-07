@@ -1,11 +1,8 @@
 "use client";
 
-import { ChevronLeft, ChevronRight, Instagram } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
 import { trackEvent } from "@/components/Analytics";
-import { Button } from "@/components/ui/button";
+import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import type { InstagramPhoto } from "@/lib/instagram";
 
@@ -16,175 +13,92 @@ interface PhotoMedia {
 interface GaleriaSectionProps {
   media: PhotoMedia[];
   instagramPhotos?: InstagramPhoto[] | null;
+  instagramUrl: string;
 }
+
+const MAX_PHOTOS = 3;
 
 export function GaleriaSection({
   media,
   instagramPhotos,
+  instagramUrl,
 }: GaleriaSectionProps) {
   const { t } = useLanguage();
-  const MAX_PHOTOS = 6;
-  const photos = (
-    instagramPhotos && instagramPhotos.length > 0
+
+  const photos: { image: string; caption?: string; permalink?: string }[] = (
+    instagramPhotos && instagramPhotos.length >= MAX_PHOTOS
       ? instagramPhotos
       : media.map((photo, index) => ({
           ...photo,
           caption: t.galeria.captions[index],
         }))
   ).slice(0, MAX_PHOTOS);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  useEffect(() => {
-    if (!isAutoPlaying) return;
-
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % photos.length);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [isAutoPlaying, photos.length]);
-
-  const goToNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % photos.length);
-    setIsAutoPlaying(false);
-  };
-
-  const goToPrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + photos.length) % photos.length);
-    setIsAutoPlaying(false);
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index);
-    setIsAutoPlaying(false);
-  };
+  const trackInstagram = () =>
+    trackEvent("social_click", {
+      event_category: "engagement",
+      event_label: "Instagram Galeria",
+      platform: "instagram",
+      location: "galeria",
+    });
 
   return (
-    <section id="galeria" className="py-20 bg-muted/30">
+    <section id="galeria" className="py-10 md:py-14">
       <div className="container">
-        <h2 className="text-4xl text-center mb-12">
-          {t.galeria.title}
-        </h2>
-
-        {/* Carousel */}
-        <div className="relative max-w-4xl mx-auto">
-          {/* Imagem principal */}
-          <div className="relative aspect-[4/3] md:aspect-[16/9] overflow-hidden rounded-lg">
-            <Image
-              src={photos[currentIndex].image}
-              alt={photos[currentIndex].caption || `${currentIndex + 1}`}
-              fill
-              sizes="(max-width: 768px) 100vw, 896px"
-              className="object-cover"
-            />
-
-            {/* Overlay com caption */}
-            {(photos[currentIndex].caption ||
-              "permalink" in photos[currentIndex]) && (
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 space-y-2">
-                {photos[currentIndex].caption && (
-                  <p className="text-white text-lg font-medium text-center">
-                    {photos[currentIndex].caption}
-                  </p>
-                )}
-                {"permalink" in photos[currentIndex] && (
-                  <Link
-                    href={(photos[currentIndex] as InstagramPhoto).permalink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-1.5 text-white/80 hover:text-white text-sm transition-colors"
-                    onClick={() =>
-                      trackEvent("social_click", {
-                        event_category: "engagement",
-                        event_label: "Instagram Galeria",
-                        platform: "instagram",
-                        location: "galeria",
-                      })
-                    }
-                  >
-                    <Instagram className="h-4 w-4" />
-                    {t.galeria.viewOnInstagram}
-                  </Link>
-                )}
-              </div>
-            )}
+        <AnimateOnScroll className="flex flex-wrap items-end justify-between gap-x-8 gap-y-3">
+          <div>
+            <p className="text-[11px] uppercase tracking-[0.12em] text-highlight">
+              {t.galeria.eyebrow}
+            </p>
+            <h2 className="mt-3 text-[29px] leading-tight md:text-[43px]">
+              {t.galeria.title}
+            </h2>
           </div>
-
-          {/* Botões de navegação */}
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={goToPrev}
-            aria-label={t.galeria.previousPhoto}
-            className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full h-10 w-10 md:h-12 md:w-12"
+          <a
+            href={instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={trackInstagram}
+            className="pb-2 text-sm text-highlight hover:underline underline-offset-4"
           >
-            <ChevronLeft className="h-6 w-6" />
-          </Button>
+            {t.galeria.viewOnInstagram} ↗
+          </a>
+        </AnimateOnScroll>
 
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={goToNext}
-            aria-label={t.galeria.nextPhoto}
-            className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full h-10 w-10 md:h-12 md:w-12"
-          >
-            <ChevronRight className="h-6 w-6" />
-          </Button>
-
-          {/* Indicadores (bolinhas) */}
-          <div className="flex justify-center gap-1 mt-6">
-            {photos.map((photo, index) => (
-              <button
-                key={photo.image}
-                type="button"
-                onClick={() => goToSlide(index)}
-                className="group flex h-6 w-6 items-center justify-center"
-                aria-label={t.galeria.goToPhoto.replace(
-                  "{n}",
-                  String(index + 1),
-                )}
-                aria-current={index === currentIndex}
-              >
-                <span
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    index === currentIndex
-                      ? "w-8 bg-primary"
-                      : "w-2 bg-muted-foreground/30 group-hover:bg-muted-foreground/50"
-                  }`}
-                />
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Miniaturas (apenas desktop) */}
-        <div
-          className="hidden md:grid gap-4 mt-8 max-w-4xl mx-auto"
-          style={{
-            gridTemplateColumns: `repeat(${photos.length}, minmax(0, 1fr))`,
-          }}
-        >
-          {photos.map((photo, index) => (
-            <button
-              key={photo.image}
-              type="button"
-              onClick={() => goToSlide(index)}
-              className={`relative aspect-square overflow-hidden rounded-lg transition-all duration-300 ${
-                index === currentIndex
-                  ? "ring-2 ring-primary ring-offset-2"
-                  : "opacity-60 hover:opacity-100"
-              }`}
-            >
+        <div className="-mx-4 mt-6 flex snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:scroll-px-0 sm:px-0 sm:pb-0 md:gap-6">
+          {photos.map((photo, index) => {
+            const image = (
               <Image
                 src={photo.image}
-                alt={photo.caption || `Miniatura ${index + 1}`}
+                alt={photo.caption ?? `${t.galeria.title} ${index + 1}`}
                 fill
-                sizes="200px"
-                className="object-cover"
+                sizes="(min-width: 640px) 33vw, 100vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-            </button>
-          ))}
+            );
+
+            return (
+              <AnimateOnScroll
+                key={photo.image}
+                delay={index * 0.1}
+                className="group relative aspect-[400/245] w-[82%] shrink-0 snap-start overflow-hidden rounded-[20px] bg-muted sm:w-auto"
+              >
+                {photo.permalink ? (
+                  <a
+                    href={photo.permalink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={trackInstagram}
+                    aria-label={photo.caption ?? t.galeria.viewOnInstagram}
+                  >
+                    {image}
+                  </a>
+                ) : (
+                  image
+                )}
+              </AnimateOnScroll>
+            );
+          })}
         </div>
       </div>
     </section>
