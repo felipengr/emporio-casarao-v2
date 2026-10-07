@@ -36,7 +36,6 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
-    "@netlify/plugin-nextjs": "^5.14.0",
     "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
