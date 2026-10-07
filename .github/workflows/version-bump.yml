@@ -1,0 +1,67 @@
+name: Version bump
+
+on:
+  push:
+    branches: [master]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: version-bump
+  cancel-in-progress: false
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    # Evita loop: ignora o próprio commit de bump
+    if: "!startsWith(github.event.head_commit.message, 'chore(release):')"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Definir tipo de bump
+        id: type
+        env:
+          COMMITS: ${{ toJSON(github.event.commits.*.message) }}
+        run: |
+          if echo "$COMMITS" | grep -qE '(^|")[a-z]+(\([^)]*\))?!:|BREAKING CHANGE'; then
+            echo "level=major" >> "$GITHUB_OUTPUT"
+          elif echo "$COMMITS" | grep -qE '(^|")feat(\([^)]*\))?:'; then
+            echo "level=minor" >> "$GITHUB_OUTPUT"
+          else
+            echo "level=patch" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Atualizar versão no package.json
+        id: bump
+        run: |
+          VERSION=$(node -e '
+            const fs = require("fs");
+            const pkg = JSON.parse(fs.readFileSync("package.json", "utf8"));
+            let [major, minor, patch] = pkg.version.split(".").map(Number);
+            const level = process.argv[1];
+            if (level === "major") { major++; minor = 0; patch = 0; }
+            else if (level === "minor") { minor++; patch = 0; }
+            else { patch++; }
+            pkg.version = `${major}.${minor}.${patch}`;
+            fs.writeFileSync("package.json", JSON.stringify(pkg, null, 2) + "\n");
+            console.log(pkg.version);
+          ' "${{ steps.type.outputs.level }}")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Commit e tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json
+          # [skip ci] também faz o Netlify ignorar esse commit (não gera deploy duplicado)
+          git commit -m "chore(release): v${{ steps.bump.outputs.version }} [skip ci]"
+          git tag "v${{ steps.bump.outputs.version }}"
+          git pull --rebase origin master
+          git push origin HEAD:master --follow-tags
