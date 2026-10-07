@@ -1,64 +1,87 @@
 @import "tailwindcss";
 
 @theme {
-  /* Light mode - tons quentes e acolhedores */
-  --color-background: oklch(97% 0.02 60);
-  --color-foreground: oklch(25% 0.03 40);
-  
-  --color-card: oklch(100% 0 0);
-  --color-card-foreground: oklch(25% 0.03 40);
-  
-  --color-popover: oklch(100% 0 0);
-  --color-popover-foreground: oklch(25% 0.03 40);
-  
-  --color-primary: oklch(58% 0.15 40);
-  --color-primary-foreground: oklch(100% 0 0);
-  
-  --color-secondary: oklch(90% 0.02 60);
-  --color-secondary-foreground: oklch(25% 0.03 40);
-  
-  --color-muted: oklch(94% 0.015 60);
-  --color-muted-foreground: oklch(50% 0.02 40);
-  
-  --color-accent: oklch(52% 0.08 150);
-  --color-accent-foreground: oklch(100% 0 0);
-  
+  /* Fontes: as variáveis vêm do next/font, aplicadas no <html> */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-source-serif), Georgia, ui-serif, serif;
+
+  /* Light mode - creme, verde-mata e terracota (docs/layout) */
+  --color-background: #faf7ef;
+  --color-foreground: #213e30;
+
+  --color-card: #efebdd;
+  --color-card-foreground: #213e30;
+
+  --color-popover: #faf7ef;
+  --color-popover-foreground: #213e30;
+
+  --color-primary: #294e3a;
+  --color-primary-foreground: #faf7ef;
+
+  --color-secondary: #efebdd;
+  --color-secondary-foreground: #213e30;
+
+  --color-muted: #efebdd;
+  --color-muted-foreground: #5e695d;
+
+  /* Fundo suave de hover (botões ghost/outline) */
+  --color-accent: #efebdd;
+  --color-accent-foreground: #213e30;
+
+  /* Terracota: legendas, links e pequenos destaques */
+  --color-highlight: #9b472f;
+  --color-highlight-foreground: #faf7ef;
+
   --color-destructive: oklch(55% 0.22 25);
   --color-destructive-foreground: oklch(100% 0 0);
-  
-  --color-border: oklch(88% 0.015 60);
-  --color-input: oklch(88% 0.015 60);
-  --color-ring: oklch(58% 0.15 40);
+
+  --color-border: #e2dccb;
+  --color-input: #e2dccb;
+  --color-ring: #294e3a;
 }
 
 .dark {
-  --color-background: oklch(20% 0.03 40);
-  --color-foreground: oklch(92% 0.02 60);
-  
-  --color-card: oklch(24% 0.025 40);
-  --color-card-foreground: oklch(92% 0.02 60);
-  
-  --color-popover: oklch(24% 0.025 40);
-  --color-popover-foreground: oklch(92% 0.02 60);
-  
-  --color-primary: oklch(56% 0.16 40);
-  --color-primary-foreground: oklch(100% 0 0);
+  /* Noturno - verde profundo e pêssego */
+  --color-background: #14251f;
+  --color-foreground: #f5efe3;
 
-  --color-secondary: oklch(28% 0.02 40);
-  --color-secondary-foreground: oklch(92% 0.02 60);
+  --color-card: #20362d;
+  --color-card-foreground: #f5efe3;
 
-  --color-muted: oklch(26% 0.018 40);
-  --color-muted-foreground: oklch(70% 0.015 60);
+  --color-popover: #20362d;
+  --color-popover-foreground: #f5efe3;
 
-  --color-accent: oklch(48% 0.07 150);
-  --color-accent-foreground: oklch(100% 0 0);
+  --color-primary: #dda17c;
+  --color-primary-foreground: #14251f;
+
+  --color-secondary: #20362d;
+  --color-secondary-foreground: #f5efe3;
+
+  --color-muted: #20362d;
+  --color-muted-foreground: #c3cebf;
+
+  --color-accent: #20362d;
+  --color-accent-foreground: #f5efe3;
+
+  --color-highlight: #e8ad88;
+  --color-highlight-foreground: #14251f;
 
   --color-destructive: oklch(50% 0.20 25);
   --color-destructive-foreground: oklch(100% 0 0);
 
-  --color-border: oklch(30% 0.02 40);
-  --color-input: oklch(30% 0.02 40);
-  --color-ring: oklch(56% 0.16 40);
+  --color-border: #2b4439;
+  --color-input: #2b4439;
+  --color-ring: #dda17c;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
 }
 
 /* Widget de acessibilidade: modo de alto contraste */
@@ -69,17 +92,19 @@
   --color-card-foreground: oklch(0% 0 0) !important;
   --color-popover: oklch(100% 0 0) !important;
   --color-popover-foreground: oklch(0% 0 0) !important;
-  --color-primary: oklch(30% 0.15 40) !important;
+  --color-primary: oklch(26% 0.06 155) !important;
   --color-primary-foreground: oklch(100% 0 0) !important;
   --color-secondary: oklch(92% 0 0) !important;
   --color-secondary-foreground: oklch(0% 0 0) !important;
   --color-muted: oklch(92% 0 0) !important;
   --color-muted-foreground: oklch(15% 0 0) !important;
-  --color-accent: oklch(25% 0.08 150) !important;
-  --color-accent-foreground: oklch(100% 0 0) !important;
+  --color-accent: oklch(92% 0 0) !important;
+  --color-accent-foreground: oklch(0% 0 0) !important;
+  --color-highlight: oklch(35% 0.12 40) !important;
+  --color-highlight-foreground: oklch(100% 0 0) !important;
   --color-border: oklch(0% 0 0) !important;
   --color-input: oklch(0% 0 0) !important;
-  --color-ring: oklch(30% 0.15 40) !important;
+  --color-ring: oklch(26% 0.06 155) !important;
 }
 
 :root.dark.a11y-high-contrast {
@@ -89,17 +114,19 @@
   --color-card-foreground: oklch(100% 0 0) !important;
   --color-popover: oklch(0% 0 0) !important;
   --color-popover-foreground: oklch(100% 0 0) !important;
-  --color-primary: oklch(80% 0.15 40) !important;
+  --color-primary: oklch(86% 0.08 55) !important;
   --color-primary-foreground: oklch(0% 0 0) !important;
   --color-secondary: oklch(15% 0 0) !important;
   --color-secondary-foreground: oklch(100% 0 0) !important;
   --color-muted: oklch(15% 0 0) !important;
   --color-muted-foreground: oklch(90% 0 0) !important;
-  --color-accent: oklch(80% 0.08 150) !important;
-  --color-accent-foreground: oklch(0% 0 0) !important;
+  --color-accent: oklch(15% 0 0) !important;
+  --color-accent-foreground: oklch(100% 0 0) !important;
+  --color-highlight: oklch(86% 0.08 55) !important;
+  --color-highlight-foreground: oklch(0% 0 0) !important;
   --color-border: oklch(100% 0 0) !important;
   --color-input: oklch(100% 0 0) !important;
-  --color-ring: oklch(80% 0.15 40) !important;
+  --color-ring: oklch(86% 0.08 55) !important;
 }
 
 :root.a11y-high-contrast a,

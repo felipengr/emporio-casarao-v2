@@ -63,7 +63,7 @@ export function GaleriaSection({
   return (
     <section id="galeria" className="py-20 bg-muted/30">
       <div className="container">
-        <h2 className="text-4xl font-bold text-center mb-12">
+        <h2 className="text-4xl text-center mb-12">
           {t.galeria.title}
         </h2>
 

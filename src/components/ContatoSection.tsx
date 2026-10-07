@@ -52,7 +52,7 @@ export function ContatoSection({ config }: ContatoSectionProps) {
   return (
     <section id="contato" className="py-20">
       <div className="container">
-        <h2 className="text-4xl font-bold text-center mb-12">
+        <h2 className="text-4xl text-center mb-12">
           {t.contato.title}
         </h2>
 

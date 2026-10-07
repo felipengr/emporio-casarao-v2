@@ -34,7 +34,7 @@ export function SobreSection({ media }: SobreSectionProps) {
 
           <AnimateOnScroll delay={0.2}>
             <div className="space-y-6">
-              <h2 className="text-4xl font-bold">{t.sobre.title}</h2>
+              <h2 className="text-4xl">{t.sobre.title}</h2>
               <div className="prose prose-lg max-w-none">
                 <p>{t.sobre.body}</p>
               </div>

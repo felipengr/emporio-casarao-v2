@@ -33,7 +33,7 @@ export function Hero({ media }: HeroProps) {
 
       <div className="relative container h-full flex items-center">
         <div className="max-w-2xl text-white space-y-6">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl leading-tight">
             {t.hero.title}
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl text-white">
@@ -42,7 +42,7 @@ export function Hero({ media }: HeroProps) {
           <Button
             asChild
             size="lg"
-            className="bg-primary hover:bg-primary/90 text-white"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground"
           >
             <Link href={media.ctaHref}>
               {t.hero.ctaText}
