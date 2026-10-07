@@ -2,7 +2,6 @@ import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { SobreSection } from '@/components/SobreSection';
 import { ProdutosDestaque } from '@/components/ProdutosDestaque';
-import { ParceirosSection } from '@/components/ParceirosSection';
 import { GaleriaSection } from '@/components/GaleriaSection';
 import { ContatoSection } from '@/components/ContatoSection';
 import { Footer } from '@/components/Footer';
@@ -15,7 +14,6 @@ import {
   heroMedia,
   sobreMedia,
   produtosMedia,
-  parceiros,
   galeriaMedia,
 } from '@/lib/site-content';
 import { getInstagramPhotos } from '@/lib/instagram';
@@ -31,7 +29,6 @@ export default async function Home() {
         <Hero media={heroMedia} />
         <ProdutosDestaque media={produtosMedia} whatsapp={siteConfig.whatsapp} />
         <SobreSection media={sobreMedia} />
-        <ParceirosSection parceiros={parceiros} />
         <GaleriaSection
           media={galeriaMedia}
           instagramPhotos={instagramPhotos}

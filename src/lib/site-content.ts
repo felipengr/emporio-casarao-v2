@@ -70,16 +70,6 @@ export const produtosMedia = [
   { id: 'utopi', category: 'queijos', image: '/images/produtos/utopi.jpg' },
 ] as const satisfies readonly { id: string; category: ProdutoCategoria; image: string }[];
 
-export const parceiros = [
-  'Viçosa',
-  'Ibyrá',
-  'Araci',
-  'Geraldo Grespan',
-  'MexiCacau',
-  'Utopi',
-  'La Serenissima',
-];
-
 export const galeriaMedia = [
   { image: '/images/galeria/fachada.jpg' },
   { image: '/images/galeria/vo-cecilia.jpg' },
