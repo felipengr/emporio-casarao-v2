@@ -27,26 +27,17 @@ export default function Loading() {
 
       <main>
         <HeroSkeleton />
-        <SobreSkeleton />
         <ProdutosSkeleton />
+        <SobreSkeleton />
         <ParceirosSkeleton />
         <GaleriaSkeleton />
         <ContatoSkeleton />
       </main>
 
       {/* Footer Skeleton */}
-      <footer className="bg-secondary/50 border-t">
-        <div className="container py-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="space-y-4">
-                <Skeleton className="h-6 w-32" />
-                <Skeleton className="h-4 w-full" />
-                <Skeleton className="h-4 w-3/4" />
-              </div>
-            ))}
-          </div>
-        </div>
+      <footer className="container pt-4 pb-10">
+        <Skeleton className="h-7 w-48" />
+        <Skeleton className="mt-3 h-4 w-40" />
       </footer>
     </>
   );

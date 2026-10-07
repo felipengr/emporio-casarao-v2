@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { Landmark, UtensilsCrossed, Hammer } from 'lucide-react';
-import { AnimateOnScroll } from '@/components/AnimateOnScroll';
-import { useLanguage } from '@/lib/i18n/LanguageContext';
+import Image from "next/image";
+import { useState } from "react";
+import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 interface SobreSectionProps {
   media: {
@@ -11,51 +11,46 @@ interface SobreSectionProps {
   };
 }
 
-const highlightIcons = [Landmark, UtensilsCrossed, Hammer];
-
 export function SobreSection({ media }: SobreSectionProps) {
   const { t } = useLanguage();
+  const [expanded, setExpanded] = useState(false);
 
   return (
-    <section id="sobre" className="py-20 w-full">
+    <section id="sobre" className="py-10 md:py-16">
       <div className="container">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <AnimateOnScroll>
-            <div className="relative h-[400px] md:h-[500px] rounded-lg overflow-hidden">
+        <AnimateOnScroll>
+          <div className="grid items-center gap-8 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-12 md:rounded-3xl md:bg-card md:p-8 lg:gap-16">
+            <div className="relative order-2 aspect-[4/3] overflow-hidden rounded-[20px] md:order-1">
               <Image
                 src={media.image}
-                alt={t.sobre.title}
+                alt={t.sobre.imageAlt}
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(min-width: 768px) 40vw, 100vw"
                 className="object-cover"
               />
             </div>
-          </AnimateOnScroll>
 
-          <AnimateOnScroll delay={0.2}>
-            <div className="space-y-6">
-              <h2 className="text-4xl">{t.sobre.title}</h2>
-              <div className="prose prose-lg max-w-none">
-                <p>{t.sobre.body}</p>
-              </div>
+            <div className="order-1 md:order-2 md:py-6 md:pr-8">
+              <p className="text-[11px] uppercase tracking-[0.12em] text-highlight">
+                {t.sobre.eyebrow}
+              </p>
+              <h2 className="mt-4 text-[29px] leading-tight md:text-[43px]">
+                {t.sobre.title}
+                <br />
+                {t.sobre.titleLine2}
+              </h2>
+              <p className="mt-6 max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
+                {expanded ? t.sobre.body : t.sobre.intro}
+              </p>
+              <button
+                type="button"
+                onClick={() => setExpanded((v) => !v)}
+                aria-expanded={expanded}
+                className="mt-6 text-sm text-highlight hover:underline underline-offset-4"
+              >
+                {expanded ? t.sobre.readLess : `${t.sobre.readMore} →`}
+              </button>
             </div>
-          </AnimateOnScroll>
-        </div>
-
-        <AnimateOnScroll delay={0.3}>
-          <div className="grid sm:grid-cols-3 gap-8 mt-16">
-            {t.sobre.highlights.map((highlight, index) => {
-              const Icon = highlightIcons[index];
-              return (
-                <div key={highlight.title} className="flex flex-col items-center text-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                    <Icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="font-semibold text-lg">{highlight.title}</h3>
-                  <p className="text-muted-foreground text-sm">{highlight.text}</p>
-                </div>
-              );
-            })}
           </div>
         </AnimateOnScroll>
       </div>

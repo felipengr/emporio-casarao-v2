@@ -1,51 +1,111 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { AnimateOnScroll } from '@/components/AnimateOnScroll';
-import { useLanguage } from '@/lib/i18n/LanguageContext';
-
-interface ProdutoMedia {
-  image: string;
-  href: string;
-}
+import Image from "next/image";
+import { useState } from "react";
+import { trackEvent } from "@/components/Analytics";
+import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import {
+  type ProdutoCategoria,
+  produtosCategorias,
+  type produtosMedia,
+} from "@/lib/site-content";
+import { cn } from "@/lib/utils";
 
 interface ProdutosDestaqueProps {
-  media: ProdutoMedia[];
+  media: typeof produtosMedia;
+  whatsapp: string;
 }
 
-export function ProdutosDestaque({ media }: ProdutosDestaqueProps) {
+export function ProdutosDestaque({ media, whatsapp }: ProdutosDestaqueProps) {
   const { t } = useLanguage();
-  const items = t.produtos.items.map((item, index) => ({ ...item, ...media[index] }));
+  const [categoria, setCategoria] = useState<ProdutoCategoria>(
+    produtosCategorias[0],
+  );
+  const whatsappNumber = whatsapp.replace(/\D/g, "");
+
+  const items = media
+    .filter((produto) => produto.category === categoria)
+    .map((produto) => ({ ...produto, ...t.produtos.items[produto.id] }));
 
   return (
-    <section id="produtos" className="py-20 bg-secondary/30 w-full">
+    <section id="produtos" className="py-16 md:py-20">
       <div className="container">
         <AnimateOnScroll>
-          <h2 className="text-4xl text-center mb-12">{t.produtos.title}</h2>
+          <p className="text-[11px] uppercase tracking-[0.12em] text-highlight">
+            {t.produtos.eyebrow}
+          </p>
+          <h2 className="mt-3 text-[29px] md:text-[43px] leading-tight">
+            {t.produtos.title}
+          </h2>
+          <p className="mt-1 text-muted-foreground">{t.produtos.subtitle}</p>
         </AnimateOnScroll>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {items.map((produto, index) => (
-            <AnimateOnScroll key={produto.name} delay={index * 0.1}>
-              <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300">
-                <div className="relative h-64 overflow-hidden">
-                  <Image
-                    src={produto.image}
-                    alt={produto.name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <CardHeader>
-                  <CardTitle className="text-2xl">{produto.name}</CardTitle>
-                  <CardDescription className="text-base">
-                    {produto.description}
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            </AnimateOnScroll>
+        <div
+          role="tablist"
+          aria-label={t.produtos.categoriesLabel}
+          className="-mx-4 mt-6 flex gap-3 overflow-x-auto px-4 pb-1 md:mx-0 md:px-0"
+        >
+          {produtosCategorias.map((cat) => (
+            <button
+              key={cat}
+              type="button"
+              role="tab"
+              id={`tab-${cat}`}
+              aria-selected={cat === categoria}
+              aria-controls="produtos-lista"
+              onClick={() => setCategoria(cat)}
+              className={cn(
+                "h-9 shrink-0 rounded-full px-4 text-[13px] whitespace-nowrap transition-colors",
+                cat === categoria
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-secondary text-secondary-foreground hover:bg-secondary/70",
+              )}
+            >
+              {t.produtos.categories[cat]}
+            </button>
+          ))}
+        </div>
+
+        <div
+          id="produtos-lista"
+          role="tabpanel"
+          aria-labelledby={`tab-${categoria}`}
+          className="mt-6 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {items.map((produto) => (
+            <article key={produto.id} className="group">
+              <div className="relative aspect-[400/245] overflow-hidden rounded-[20px] bg-muted">
+                <Image
+                  src={produto.image}
+                  alt={produto.name}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <h3 className="mt-4 text-[25px] leading-tight">{produto.name}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">
+                {produto.description}
+              </p>
+              <a
+                href={`https://wa.me/55${whatsappNumber}?text=${encodeURIComponent(
+                  t.produtos.whatsappMessage.replace("{produto}", produto.name),
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-block text-sm text-highlight hover:underline underline-offset-4"
+                onClick={() =>
+                  trackEvent("contact_whatsapp", {
+                    event_category: "engagement",
+                    event_label: `Produto ${produto.id}`,
+                    location: "produtos",
+                  })
+                }
+              >
+                {t.produtos.cta} ↗
+              </a>
+            </article>
           ))}
         </div>
       </div>
