@@ -10,11 +10,18 @@ interface SeoConfig {
   twitterHandle?: string;
 }
 
-export function generateSeoMetadata(seoConfig: SeoConfig, pageTitle?: string, pageDescription?: string, pageImage?: string): Metadata {
+export function generateSeoMetadata(
+  seoConfig: SeoConfig,
+  pageTitle?: string,
+  pageDescription?: string,
+  pageImage?: string,
+  canonicalPath = ''
+): Metadata {
   const title = pageTitle || seoConfig.siteTitle;
   const description = pageDescription || seoConfig.siteDescription;
   const image = pageImage || seoConfig.ogImage || '/images/og-image-default.jpg';
   const url = seoConfig.siteUrl;
+  const canonicalUrl = `${url}${canonicalPath}`;
 
   return {
     title,
@@ -23,13 +30,17 @@ export function generateSeoMetadata(seoConfig: SeoConfig, pageTitle?: string, pa
     authors: [{ name: 'Empório Casarão' }],
     creator: 'Empório Casarão',
     publisher: 'Empório Casarão',
-    
+
     metadataBase: new URL(url),
-    
+
+    alternates: {
+      canonical: canonicalUrl,
+    },
+
     openGraph: {
       type: 'website',
       locale: 'pt_BR',
-      url: url,
+      url: canonicalUrl,
       title,
       description,
       siteName: seoConfig.siteTitle,

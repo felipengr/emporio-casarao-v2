@@ -1,9 +1,10 @@
-import { Apple, Bell, PlayCircle, Tag, Wallet } from "lucide-react";
+import { Apple, Bell, Mail, Phone, PlayCircle, Tag, Wallet } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { generateSeoMetadata } from "@/components/SEO";
+import { clubeControlador } from "@/lib/clube-content";
 import { seoConfig, siteConfig } from "@/lib/site-content";
 
 export function generateMetadata(): Metadata {
@@ -11,6 +12,8 @@ export function generateMetadata(): Metadata {
     seoConfig,
     `Clube Casarão | ${siteConfig.siteName}`,
     "Conheça o Clube Casarão: o programa de fidelidade com cashback do Empório Casarão. Em breve no app, para iOS e Android.",
+    undefined,
+    "/clube",
   );
 }
 
@@ -86,6 +89,33 @@ export default function ClubePage() {
           </div>
         </div>
 
+        <div className="mt-12 rounded-3xl bg-card p-6 md:p-8">
+          <p className="font-serif text-xl md:text-2xl">Precisa de ajuda?</p>
+          <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
+            Fale com a gente sobre o Clube Casarão, sua conta ou qualquer outra
+            dúvida.
+          </p>
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              href={`https://wa.me/${clubeControlador.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm transition-colors hover:text-highlight"
+            >
+              <Phone className="h-4 w-4" />
+              WhatsApp {clubeControlador.telefone}
+            </Link>
+            <Link
+              href={`mailto:${clubeControlador.email}`}
+              className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm transition-colors hover:text-highlight"
+            >
+              <Mail className="h-4 w-4" />
+              {clubeControlador.email}
+            </Link>
+          </div>
+        </div>
+
         <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm">
           <Link
             href="/clube/regulamento"
@@ -98,6 +128,12 @@ export default function ClubePage() {
             className="text-highlight underline underline-offset-4"
           >
             Política de Privacidade do Clube Casarão
+          </Link>
+          <Link
+            href="/clube/excluir-conta"
+            className="text-highlight underline underline-offset-4"
+          >
+            Excluir minha conta
           </Link>
         </div>
       </div>

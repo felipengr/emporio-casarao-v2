@@ -12,6 +12,8 @@ export function generateMetadata(): Metadata {
     seoConfig,
     `Política de Privacidade do Clube Casarão | ${siteConfig.siteName}`,
     "Como o Clube Casarão, programa de fidelidade do Empório Casarão, coleta, usa e protege seus dados pessoais.",
+    undefined,
+    "/clube/privacidade",
   );
 }
 

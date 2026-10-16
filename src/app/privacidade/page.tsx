@@ -9,7 +9,9 @@ export function generateMetadata(): Metadata {
   return generateSeoMetadata(
     seoConfig,
     `Política de Privacidade | ${siteConfig.siteName}`,
-    'Saiba como o Empório Casarão coleta, usa e protege os seus dados pessoais, em conformidade com a LGPD.'
+    'Saiba como o Empório Casarão coleta, usa e protege os seus dados pessoais, em conformidade com a LGPD.',
+    undefined,
+    '/privacidade'
   );
 }
 
@@ -57,8 +59,12 @@ export default function PrivacidadePage() {
               Quem somos
             </h2>
             <p className="mt-3">
-              {siteConfig.legalName}, inscrita no CNPJ {siteConfig.cnpj}, com
-              estabelecimento em {siteConfig.address}.
+              {siteConfig.legalName}, inscrita no CNPJ {siteConfig.cnpj}.
+            </p>
+            <p className="mt-3">
+              Loja: {siteConfig.address}.
+              <br />
+              Endereço cadastral (CNPJ): {siteConfig.cnpjAddress}.
             </p>
           </section>
 
