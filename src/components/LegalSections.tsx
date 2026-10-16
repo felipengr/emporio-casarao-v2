@@ -1,5 +1,8 @@
 import Link from 'next/link';
+import { Footer } from '@/components/Footer';
+import { Header } from '@/components/Header';
 import type { SecaoTexto } from '@/lib/clube-content';
+import { siteConfig } from '@/lib/site-content';
 
 interface LegalSectionsProps {
   titulo: string;
@@ -10,6 +13,7 @@ interface LegalSectionsProps {
 export function LegalSections({ titulo, atualizadoEm, secoes }: LegalSectionsProps) {
   return (
     <div className="min-h-screen bg-background">
+      <Header config={siteConfig} />
       <div className="container max-w-3xl py-10 md:py-16">
         <Link
           href="/clube"
@@ -36,6 +40,7 @@ export function LegalSections({ titulo, atualizadoEm, secoes }: LegalSectionsPro
           ))}
         </div>
       </div>
+      <Footer config={siteConfig} />
     </div>
   );
 }

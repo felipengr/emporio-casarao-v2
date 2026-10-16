@@ -1,6 +1,8 @@
 import { Apple, Bell, PlayCircle, Tag, Wallet } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
 import { generateSeoMetadata } from "@/components/SEO";
 import { seoConfig, siteConfig } from "@/lib/site-content";
 
@@ -34,6 +36,7 @@ const beneficios = [
 export default function ClubePage() {
   return (
     <div className="min-h-screen bg-background">
+      <Header config={siteConfig} />
       <div className="container max-w-3xl py-10 md:py-16">
         <p className="text-[11px] uppercase tracking-[0.12em] text-highlight">
           Clube Casarão
@@ -98,6 +101,7 @@ export default function ClubePage() {
           </Link>
         </div>
       </div>
+      <Footer config={siteConfig} />
     </div>
   );
 }
