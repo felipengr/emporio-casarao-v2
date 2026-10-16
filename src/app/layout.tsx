@@ -19,12 +19,7 @@ const GA_MEASUREMENT_ID = "G-JN9ED1LCLY";
 const GTM_ID = "GTM-KJ2SCNDS";
 
 export function generateMetadata(): Metadata {
-  return {
-    ...generateSeoMetadata(seoConfig),
-    alternates: {
-      canonical: "https://emporiocasarao.com.br",
-    },
-  };
+  return generateSeoMetadata(seoConfig);
 }
 
 export default function RootLayout({

@@ -5,7 +5,10 @@
 export const clubeControlador = {
   razaoSocial: 'EMPORIO CASARAO PIRACAIA LTDA',
   cnpj: '65.501.697/0001-20',
+  /** Endereço da loja, onde o cliente compra e resgata o cashback. */
   endereco: 'Praça Nossa Senhora do Rosário, 111, Centro, Piracaia/SP, CEP 12970-073',
+  /** Endereço cadastral do CNPJ, diferente do endereço da loja. */
+  enderecoCadastral: 'Rua Jan Antonin Bata, 11, Piracaia/SP, CEP 12970-027',
   email: 'emporiocasarao.piracaia@gmail.com',
   telefone: '(11) 99219-5337',
   whatsapp: '5511992195337',
@@ -20,7 +23,8 @@ export const politicaPrivacidadeClube: SecaoTexto[] = [
   {
     titulo: '1. Quem somos',
     paragrafos: [
-      `O Clube Casarão é o programa de fidelidade do Empório Casarão (${clubeControlador.razaoSocial}, CNPJ ${clubeControlador.cnpj}, ${clubeControlador.endereco}). O Empório é o controlador dos seus dados pessoais, ou seja, quem decide como eles são usados.`,
+      `O Clube Casarão é o programa de fidelidade do Empório Casarão (${clubeControlador.razaoSocial}, CNPJ ${clubeControlador.cnpj}). O Empório é o controlador dos seus dados pessoais, ou seja, quem decide como eles são usados.`,
+      `Loja: ${clubeControlador.endereco}. Endereço cadastral (CNPJ): ${clubeControlador.enderecoCadastral}.`,
       `Para qualquer assunto sobre privacidade, fale com a gente pelo e-mail ${clubeControlador.email}, pelo telefone e WhatsApp ${clubeControlador.telefone} ou pessoalmente na loja.`,
     ],
   },
@@ -174,6 +178,33 @@ export const regulamentoClube: SecaoTexto[] = [
     paragrafos: [
       `Dúvidas, sugestões ou reclamações: pelo app (Perfil > Ajuda e atendimento), pelo WhatsApp ${clubeControlador.telefone}, pelo e-mail ${clubeControlador.email} ou na loja.`,
       'Fica eleito o foro da comarca de Piracaia/SP, ressalvado o direito do consumidor de propor ação no foro do seu domicílio, conforme o Código de Defesa do Consumidor.',
+    ],
+  },
+];
+
+export const exclusaoContaAtualizadaEm = '16 de outubro de 2026';
+
+export const exclusaoContaClube: SecaoTexto[] = [
+  {
+    titulo: 'Pelo aplicativo',
+    paragrafos: [
+      'Abra o app, vá em Perfil > Privacidade e consentimento > Excluir minha conta e confirme. É instantâneo e não precisa falar com a equipe.',
+    ],
+  },
+  {
+    titulo: 'Sem o aplicativo, pela web',
+    paragrafos: [
+      `Se você não tem mais o app instalado, peça a exclusão pelo WhatsApp ${clubeControlador.telefone} ou pelo e-mail ${clubeControlador.email}, informando seu nome completo, CPF e o celular cadastrado no Clube Casarão (usamos esses dados só para confirmar que é você quem está pedindo).`,
+      'Respondemos e confirmamos a exclusão em até 15 dias.',
+    ],
+  },
+  {
+    titulo: 'O que acontece quando você exclui sua conta',
+    paragrafos: [
+      'Apagamos na hora: seu cadastro, as notas fiscais enviadas e suas fotos, o histórico de créditos e resgates de cashback, e os dados do seu aparelho.',
+      'O saldo de cashback não utilizado é perdido e não pode ser recuperado depois da exclusão.',
+      'Cópias de segurança (backups) podem manter esses dados por até 30 dias, até serem substituídas por uma cópia mais recente — depois disso, não restam em nenhum lugar.',
+      'Dados que a lei obrigue a guardar (por exemplo, para fins fiscais) ficam pelo prazo legal, mesmo após a exclusão da conta.',
     ],
   },
 ];

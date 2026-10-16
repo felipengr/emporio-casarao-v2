@@ -9,6 +9,8 @@ export const siteConfig = {
   logo: '/images/logo-emporio-transparente.png',
   legalName: 'EMPORIO CASARAO PIRACAIA LTDA',
   cnpj: '65.501.697/0001-20',
+  /** Endereço cadastral do CNPJ, diferente do endereço da loja (`address`). */
+  cnpjAddress: 'Rua Jan Antonin Bata, 11 - Piracaia - SP - CEP 12970-027',
 };
 
 export const seoConfig = {

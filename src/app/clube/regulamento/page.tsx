@@ -9,6 +9,8 @@ export function generateMetadata(): Metadata {
     seoConfig,
     `Regulamento do Clube Casarão | ${siteConfig.siteName}`,
     "As regras do programa de fidelidade com cashback do Empório Casarão: como ganhar, usar e perder o saldo.",
+    undefined,
+    "/clube/regulamento",
   );
 }
 
