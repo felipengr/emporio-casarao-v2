@@ -1,6 +1,7 @@
-import { ArrowLeft } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { Footer } from '@/components/Footer';
+import { Header } from '@/components/Header';
 import { generateSeoMetadata } from '@/components/SEO';
 import { seoConfig, siteConfig } from '@/lib/site-content';
 
@@ -17,16 +18,9 @@ const lastUpdated = '16 de outubro de 2026';
 export default function PrivacidadePage() {
   return (
     <div className="min-h-screen bg-background">
+      <Header config={siteConfig} />
       <div className="container max-w-3xl py-10 md:py-16">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-highlight"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Voltar para o site
-        </Link>
-
-        <h1 className="mt-6 font-serif text-3xl md:text-4xl">
+        <h1 className="font-serif text-3xl md:text-4xl">
           Política de Privacidade
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
@@ -175,6 +169,7 @@ export default function PrivacidadePage() {
           </section>
         </div>
       </div>
+      <Footer config={siteConfig} />
     </div>
   );
 }
