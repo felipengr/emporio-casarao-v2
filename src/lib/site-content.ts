@@ -7,6 +7,8 @@ export const siteConfig = {
   instagramHandle: '@emporiocasarao.piracaia',
   instagram: 'https://instagram.com/emporiocasarao.piracaia',
   logo: '/images/logo-emporio-transparente.png',
+  legalName: 'EMPORIO CASARAO PIRACAIA LTDA',
+  cnpj: '65.501.697/0001-20',
 };
 
 export const seoConfig = {

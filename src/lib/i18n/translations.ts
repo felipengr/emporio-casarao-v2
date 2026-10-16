@@ -111,6 +111,7 @@ const pt = {
   footer: {
     tagline: 'Sabores, raízes e boas memórias.',
     developedBy: 'Desenvolvido por',
+    privacyPolicy: 'Política de Privacidade',
   },
   whatsappFloat: {
     message: 'Olá! Vim através do site e gostaria de mais informações.',
@@ -234,6 +235,7 @@ const en: typeof pt = {
   footer: {
     tagline: 'Flavors, roots and good memories.',
     developedBy: 'Developed by',
+    privacyPolicy: 'Privacy Policy',
   },
   whatsappFloat: {
     message: "Hi! I found you through the website and I'd like more information.",
@@ -357,6 +359,7 @@ const es: typeof pt = {
   footer: {
     tagline: 'Sabores, raíces y buenos recuerdos.',
     developedBy: 'Desarrollado por',
+    privacyPolicy: 'Política de Privacidad',
   },
   whatsappFloat: {
     message: '¡Hola! Los encontré a través del sitio web y me gustaría más información.',
