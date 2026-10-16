@@ -119,6 +119,11 @@ const pt = {
     tooltip: 'Fale conosco!',
     srLabel: 'Fale no WhatsApp',
   },
+  cookieNotice: {
+    message: 'Usamos cookies de análise (Google Analytics) para entender como você usa o site e melhorar sua experiência.',
+    link: 'Política de Privacidade',
+    accept: 'Entendi',
+  },
   notFound: {
     title: 'Ops! Página não encontrada',
     description: 'A página que você está procurando não existe ou foi movida para outro lugar.',
@@ -244,6 +249,11 @@ const en: typeof pt = {
     tooltip: 'Chat with us!',
     srLabel: 'Chat on WhatsApp',
   },
+  cookieNotice: {
+    message: 'We use analytics cookies (Google Analytics) to understand how you use the site and improve your experience.',
+    link: 'Privacy Policy',
+    accept: 'Got it',
+  },
   notFound: {
     title: 'Oops! Page not found',
     description: "The page you're looking for doesn't exist or has been moved.",
@@ -368,6 +378,11 @@ const es: typeof pt = {
     message: '¡Hola! Los encontré a través del sitio web y me gustaría más información.',
     tooltip: '¡Chatea con nosotros!',
     srLabel: 'Chatear por WhatsApp',
+  },
+  cookieNotice: {
+    message: 'Usamos cookies de análisis (Google Analytics) para entender cómo usas el sitio y mejorar tu experiencia.',
+    link: 'Política de Privacidad',
+    accept: 'Entendido',
   },
   notFound: {
     title: '¡Ups! Página no encontrada',
