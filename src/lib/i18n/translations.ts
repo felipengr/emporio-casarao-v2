@@ -12,6 +12,7 @@ const pt = {
     produtos: 'Sabores da casa',
     galeria: 'O Casarão',
     contato: 'Visite-nos',
+    clube: 'Clube Casarão',
   },
   languageSwitcher: {
     label: 'Selecionar idioma',
@@ -136,6 +137,7 @@ const en: typeof pt = {
     produtos: 'House flavors',
     galeria: 'The Casarão',
     contato: 'Visit us',
+    clube: 'Casarão Club',
   },
   languageSwitcher: {
     label: 'Select language',
@@ -260,6 +262,7 @@ const es: typeof pt = {
     produtos: 'Sabores de la casa',
     galeria: 'El Casarão',
     contato: 'Visítanos',
+    clube: 'Club Casarão',
   },
   languageSwitcher: {
     label: 'Seleccionar idioma',

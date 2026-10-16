@@ -43,6 +43,19 @@ export default function PrivacidadePage() {
               site, em conformidade com a Lei Geral de Proteção de Dados
               (LGPD — Lei nº 13.709/2018).
             </p>
+            <p className="mt-3">
+              Esta política cobre apenas a navegação neste site institucional.
+              Se você usa o aplicativo <strong>Clube Casarão</strong> (nosso
+              programa de fidelidade com cashback), os dados tratados pelo
+              app têm uma política própria, mais detalhada:{' '}
+              <Link
+                href="/clube/privacidade"
+                className="text-highlight underline"
+              >
+                Política de Privacidade do Clube Casarão
+              </Link>
+              .
+            </p>
           </section>
 
           <section>
