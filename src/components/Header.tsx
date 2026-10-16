@@ -27,6 +27,7 @@ export function Header({ config }: HeaderProps) {
     { href: "/#sobre", label: t.nav.sobre },
     { href: "/#galeria", label: t.nav.galeria },
     { href: "/#contato", label: t.nav.contato },
+    { href: "/clube", label: t.nav.clube },
   ];
 
   return (

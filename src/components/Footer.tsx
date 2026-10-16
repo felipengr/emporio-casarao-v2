@@ -9,6 +9,8 @@ interface FooterProps {
     siteName: string;
     instagram: string;
     instagramHandle: string;
+    legalName: string;
+    cnpj: string;
   };
 }
 
@@ -52,6 +54,18 @@ export function Footer({ config }: FooterProps) {
               Felipe Nogueira
             </Link>
           </p>
+        </div>
+
+        <div className="mt-4 flex flex-col gap-1 border-t border-border pt-4 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            {config.legalName} • CNPJ {config.cnpj}
+          </p>
+          <Link
+            href="/privacidade"
+            className="text-muted-foreground transition-colors hover:text-highlight sm:text-right"
+          >
+            {t.footer.privacyPolicy}
+          </Link>
         </div>
       </div>
     </footer>
