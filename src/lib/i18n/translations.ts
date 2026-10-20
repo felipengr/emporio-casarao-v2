@@ -102,12 +102,48 @@ const pt = {
   contato: {
     eyebrow: 'Venha conhecer',
     title: 'A próxima pausa é aqui.',
-    horarioDias: 'Segunda a sábado • 9h às 18h',
-    horarioDomingo: 'Domingo • 9h às 13h',
+    horarioDias: 'Segunda a quinta e sábado • 9h30 às 19h',
+    horarioSexta: 'Sexta • 9h30 às 21h',
+    horarioDomingo: 'Domingo • 9h30 às 14h',
     comoChegar: 'Como chegar',
     tambemPor: 'ou abra no',
     waze: 'Waze',
     appleMaps: 'Apple Maps',
+  },
+  piracaia: {
+    eyebrow: 'Passeando por Piracaia?',
+    title: 'Perguntas frequentes',
+    faq: [
+      {
+        q: 'Onde fica o Empório Casarão?',
+        a: 'Na Praça Nossa Senhora do Rosário, 111, no centro de Piracaia (SP). Fica a poucos passos da praça, fácil de incluir no seu passeio pela cidade.',
+      },
+      {
+        q: 'Qual é o horário de funcionamento?',
+        a: 'De segunda a quinta e aos sábados, das 9h30 às 19h. Às sextas, das 9h30 às 21h. Aos domingos, das 9h30 às 14h.',
+        tabela: {
+          dia: 'Dia',
+          horas: 'Horário',
+          linhas: [
+            { dia: 'Segunda', horas: '9h30 às 19h' },
+            { dia: 'Terça', horas: '9h30 às 19h' },
+            { dia: 'Quarta', horas: '9h30 às 19h' },
+            { dia: 'Quinta', horas: '9h30 às 19h' },
+            { dia: 'Sexta', horas: '9h30 às 21h' },
+            { dia: 'Sábado', horas: '9h30 às 19h' },
+            { dia: 'Domingo', horas: '9h30 às 14h' },
+          ],
+        },
+      },
+      {
+        q: 'O que eu encontro no empório?',
+        a: 'Somos um empório e mercearia de produtos artesanais: doces de leite, chocolates, queijos da Canastra e da Serra da Mantiqueira, cafés especiais, massas, pães, granolas, antepastos e temperos. Dá para fazer as compras da semana ou montar um presente.',
+      },
+      {
+        q: 'Vale a pena parar no Casarão durante um passeio por Piracaia?',
+        a: 'Se você faz turismo em Piracaia, o Casarão é uma parada para conhecer os sabores e a cultura do interior paulista: produtores selecionados, receitas de família e aquele café sem pressa. Leve uma lembrança de Piracaia para casa.',
+      },
+    ],
   },
   footer: {
     tagline: 'Sabores, raízes e boas memórias.',
@@ -269,12 +305,48 @@ const en: typeof pt = {
   contato: {
     eyebrow: 'Come visit',
     title: 'Your next break is here.',
-    horarioDias: 'Monday to Saturday • 9am to 6pm',
-    horarioDomingo: 'Sunday • 9am to 1pm',
+    horarioDias: 'Monday to Thursday and Saturday • 9:30am to 7pm',
+    horarioSexta: 'Friday • 9:30am to 9pm',
+    horarioDomingo: 'Sunday • 9:30am to 2pm',
     comoChegar: 'Get directions',
     tambemPor: 'or open in',
     waze: 'Waze',
     appleMaps: 'Apple Maps',
+  },
+  piracaia: {
+    eyebrow: 'Visiting Piracaia?',
+    title: 'Frequently asked questions',
+    faq: [
+      {
+        q: 'Where is Empório Casarão?',
+        a: 'At Praça Nossa Senhora do Rosário, 111, in downtown Piracaia (SP). It is just steps from the square, easy to fit into your walk around town.',
+      },
+      {
+        q: 'What are the opening hours?',
+        a: 'Monday to Thursday and Saturday, 9:30am to 7pm. Fridays, 9:30am to 9pm. Sundays, 9:30am to 2pm.',
+        tabela: {
+          dia: 'Day',
+          horas: 'Hours',
+          linhas: [
+            { dia: 'Monday', horas: '9:30am to 7pm' },
+            { dia: 'Tuesday', horas: '9:30am to 7pm' },
+            { dia: 'Wednesday', horas: '9:30am to 7pm' },
+            { dia: 'Thursday', horas: '9:30am to 7pm' },
+            { dia: 'Friday', horas: '9:30am to 9pm' },
+            { dia: 'Saturday', horas: '9:30am to 7pm' },
+            { dia: 'Sunday', horas: '9:30am to 2pm' },
+          ],
+        },
+      },
+      {
+        q: 'What can I find at the store?',
+        a: 'We are a delicatessen and grocery of artisanal products: dulce de leche, chocolates, cheeses from Canastra and the Serra da Mantiqueira, specialty coffees, pasta, bread, granola, antipasti and seasonings. Great for your weekly shopping or for putting together a gift.',
+      },
+      {
+        q: 'Is the Casarão worth a stop on a trip to Piracaia?',
+        a: 'If you are touring Piracaia, the Casarão is a stop to taste the flavors and culture of the São Paulo countryside: selected producers, family recipes and an unhurried coffee. Take a souvenir of Piracaia home.',
+      },
+    ],
   },
   footer: {
     tagline: 'Flavors, roots and good memories.',
@@ -437,12 +509,48 @@ const es: typeof pt = {
   contato: {
     eyebrow: 'Ven a conocernos',
     title: 'Tu próxima pausa es aquí.',
-    horarioDias: 'Lunes a sábado • 9h a 18h',
-    horarioDomingo: 'Domingo • 9h a 13h',
+    horarioDias: 'Lunes a jueves y sábado • 9h30 a 19h',
+    horarioSexta: 'Viernes • 9h30 a 21h',
+    horarioDomingo: 'Domingo • 9h30 a 14h',
     comoChegar: 'Cómo llegar',
     tambemPor: 'o ábrelo en',
     waze: 'Waze',
     appleMaps: 'Apple Maps',
+  },
+  piracaia: {
+    eyebrow: '¿Paseando por Piracaia?',
+    title: 'Preguntas frecuentes',
+    faq: [
+      {
+        q: '¿Dónde queda el Empório Casarão?',
+        a: 'En la Praça Nossa Senhora do Rosário, 111, en el centro de Piracaia (SP). Está a pocos pasos de la plaza, fácil de incluir en tu paseo por la ciudad.',
+      },
+      {
+        q: '¿Cuál es el horario de atención?',
+        a: 'De lunes a jueves y los sábados, de 9h30 a 19h. Los viernes, de 9h30 a 21h. Los domingos, de 9h30 a 14h.',
+        tabela: {
+          dia: 'Día',
+          horas: 'Horario',
+          linhas: [
+            { dia: 'Lunes', horas: '9h30 a 19h' },
+            { dia: 'Martes', horas: '9h30 a 19h' },
+            { dia: 'Miércoles', horas: '9h30 a 19h' },
+            { dia: 'Jueves', horas: '9h30 a 19h' },
+            { dia: 'Viernes', horas: '9h30 a 21h' },
+            { dia: 'Sábado', horas: '9h30 a 19h' },
+            { dia: 'Domingo', horas: '9h30 a 14h' },
+          ],
+        },
+      },
+      {
+        q: '¿Qué encuentro en la tienda?',
+        a: 'Somos un almacén de productos artesanales: dulce de leche, chocolates, quesos de Canastra y de la Serra da Mantiqueira, cafés especiales, pastas, panes, granolas, antipastos y condimentos. Ideal para las compras de la semana o para armar un regalo.',
+      },
+      {
+        q: '¿Vale la pena parar en el Casarão durante un paseo por Piracaia?',
+        a: 'Si haces turismo en Piracaia, el Casarão es una parada para conocer los sabores y la cultura del interior de São Paulo: productores seleccionados, recetas de familia y un café sin prisa. Llévate un recuerdo de Piracaia a casa.',
+      },
+    ],
   },
   footer: {
     tagline: 'Sabores, raíces y buenos recuerdos.',
