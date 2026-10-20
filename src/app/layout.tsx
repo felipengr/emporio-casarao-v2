@@ -11,9 +11,12 @@ import { seoConfig } from "@/lib/site-content";
 import { generateSeoMetadata } from "@/components/SEO";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+// Títulos usam só o peso 400: o arquivo fixo tem ~20 KB contra ~51 KB do
+// variável com todos os pesos, e ele é pré-carregado junto da imagem do hero.
 const sourceSerif = Source_Serif_4({
   variable: "--font-source-serif",
   subsets: ["latin"],
+  weight: "400",
 });
 
 const GA_MEASUREMENT_ID = "G-JN9ED1LCLY";
