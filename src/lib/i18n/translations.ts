@@ -102,8 +102,9 @@ const pt = {
   contato: {
     eyebrow: 'Venha conhecer',
     title: 'A próxima pausa é aqui.',
-    horarioDias: 'Segunda a sábado • 9h às 18h',
-    horarioDomingo: 'Domingo • 9h às 13h',
+    horarioDias: 'Segunda a quinta e sábado • 9h30 às 19h',
+    horarioSexta: 'Sexta • 9h30 às 21h',
+    horarioDomingo: 'Domingo • 9h30 às 14h',
     comoChegar: 'Como chegar',
     tambemPor: 'ou abra no',
     waze: 'Waze',
@@ -119,7 +120,7 @@ const pt = {
       },
       {
         q: 'Qual é o horário de funcionamento?',
-        a: 'De segunda a sábado, das 9h às 18h. Aos domingos, das 9h às 13h.',
+        a: 'De segunda a quinta e aos sábados, das 9h30 às 19h. Às sextas, das 9h30 às 21h. Aos domingos, das 9h30 às 14h.',
       },
       {
         q: 'O que eu encontro no empório?',
@@ -291,8 +292,9 @@ const en: typeof pt = {
   contato: {
     eyebrow: 'Come visit',
     title: 'Your next break is here.',
-    horarioDias: 'Monday to Saturday • 9am to 6pm',
-    horarioDomingo: 'Sunday • 9am to 1pm',
+    horarioDias: 'Monday to Thursday and Saturday • 9:30am to 7pm',
+    horarioSexta: 'Friday • 9:30am to 9pm',
+    horarioDomingo: 'Sunday • 9:30am to 2pm',
     comoChegar: 'Get directions',
     tambemPor: 'or open in',
     waze: 'Waze',
@@ -308,7 +310,7 @@ const en: typeof pt = {
       },
       {
         q: 'What are the opening hours?',
-        a: 'Monday to Saturday, 9am to 6pm. Sundays, 9am to 1pm.',
+        a: 'Monday to Thursday and Saturday, 9:30am to 7pm. Fridays, 9:30am to 9pm. Sundays, 9:30am to 2pm.',
       },
       {
         q: 'What can I find at the store?',
@@ -481,8 +483,9 @@ const es: typeof pt = {
   contato: {
     eyebrow: 'Ven a conocernos',
     title: 'Tu próxima pausa es aquí.',
-    horarioDias: 'Lunes a sábado • 9h a 18h',
-    horarioDomingo: 'Domingo • 9h a 13h',
+    horarioDias: 'Lunes a jueves y sábado • 9h30 a 19h',
+    horarioSexta: 'Viernes • 9h30 a 21h',
+    horarioDomingo: 'Domingo • 9h30 a 14h',
     comoChegar: 'Cómo llegar',
     tambemPor: 'o ábrelo en',
     waze: 'Waze',
@@ -498,7 +501,7 @@ const es: typeof pt = {
       },
       {
         q: '¿Cuál es el horario de atención?',
-        a: 'De lunes a sábado, de 9h a 18h. Los domingos, de 9h a 13h.',
+        a: 'De lunes a jueves y los sábados, de 9h30 a 19h. Los viernes, de 9h30 a 21h. Los domingos, de 9h30 a 14h.',
       },
       {
         q: '¿Qué encuentro en la tienda?',

@@ -96,6 +96,7 @@ export function ContatoSection({ config }: ContatoSectionProps) {
 
             <div className="text-sm leading-relaxed md:pt-12">
               <p>{t.contato.horarioDias}</p>
+              <p>{t.contato.horarioSexta}</p>
               <p>{t.contato.horarioDomingo}</p>
               <a
                 href={`https://wa.me/55${whatsappNumber}`}

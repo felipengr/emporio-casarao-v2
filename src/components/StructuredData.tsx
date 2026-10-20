@@ -48,22 +48,21 @@ export function StructuredData({ config, seoConfig }: StructuredDataProps) {
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-        ],
-        opens: "09:00",
-        closes: "18:00",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Saturday"],
+        opens: "09:30",
+        closes: "19:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Friday",
+        opens: "09:30",
+        closes: "21:00",
       },
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: "Sunday",
-        opens: "09:00",
-        closes: "13:00",
+        opens: "09:30",
+        closes: "14:00",
       },
     ],
     areaServed: { "@type": "City", name: "Piracaia" },
