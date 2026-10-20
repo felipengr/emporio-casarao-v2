@@ -121,6 +121,19 @@ const pt = {
       {
         q: 'Qual é o horário de funcionamento?',
         a: 'De segunda a quinta e aos sábados, das 9h30 às 19h. Às sextas, das 9h30 às 21h. Aos domingos, das 9h30 às 14h.',
+        tabela: {
+          dia: 'Dia',
+          horas: 'Horário',
+          linhas: [
+            { dia: 'Segunda', horas: '9h30 às 19h' },
+            { dia: 'Terça', horas: '9h30 às 19h' },
+            { dia: 'Quarta', horas: '9h30 às 19h' },
+            { dia: 'Quinta', horas: '9h30 às 19h' },
+            { dia: 'Sexta', horas: '9h30 às 21h' },
+            { dia: 'Sábado', horas: '9h30 às 19h' },
+            { dia: 'Domingo', horas: '9h30 às 14h' },
+          ],
+        },
       },
       {
         q: 'O que eu encontro no empório?',
@@ -311,6 +324,19 @@ const en: typeof pt = {
       {
         q: 'What are the opening hours?',
         a: 'Monday to Thursday and Saturday, 9:30am to 7pm. Fridays, 9:30am to 9pm. Sundays, 9:30am to 2pm.',
+        tabela: {
+          dia: 'Day',
+          horas: 'Hours',
+          linhas: [
+            { dia: 'Monday', horas: '9:30am to 7pm' },
+            { dia: 'Tuesday', horas: '9:30am to 7pm' },
+            { dia: 'Wednesday', horas: '9:30am to 7pm' },
+            { dia: 'Thursday', horas: '9:30am to 7pm' },
+            { dia: 'Friday', horas: '9:30am to 9pm' },
+            { dia: 'Saturday', horas: '9:30am to 7pm' },
+            { dia: 'Sunday', horas: '9:30am to 2pm' },
+          ],
+        },
       },
       {
         q: 'What can I find at the store?',
@@ -502,6 +528,19 @@ const es: typeof pt = {
       {
         q: '¿Cuál es el horario de atención?',
         a: 'De lunes a jueves y los sábados, de 9h30 a 19h. Los viernes, de 9h30 a 21h. Los domingos, de 9h30 a 14h.',
+        tabela: {
+          dia: 'Día',
+          horas: 'Horario',
+          linhas: [
+            { dia: 'Lunes', horas: '9h30 a 19h' },
+            { dia: 'Martes', horas: '9h30 a 19h' },
+            { dia: 'Miércoles', horas: '9h30 a 19h' },
+            { dia: 'Jueves', horas: '9h30 a 19h' },
+            { dia: 'Viernes', horas: '9h30 a 21h' },
+            { dia: 'Sábado', horas: '9h30 a 19h' },
+            { dia: 'Domingo', horas: '9h30 a 14h' },
+          ],
+        },
       },
       {
         q: '¿Qué encuentro en la tienda?',

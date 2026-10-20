@@ -31,9 +31,35 @@ export function PiracaiaFaq() {
                       ▾
                     </span>
                   </summary>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
-                    {item.a}
-                  </p>
+                  {item.tabela ? (
+                    <table className="mt-3 w-full max-w-sm text-sm md:text-base">
+                      <thead className="sr-only">
+                        <tr>
+                          <th scope="col">{item.tabela.dia}</th>
+                          <th scope="col">{item.tabela.horas}</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y">
+                        {item.tabela.linhas.map((linha) => (
+                          <tr key={linha.dia}>
+                            <th
+                              scope="row"
+                              className="py-2 pr-6 text-left font-normal"
+                            >
+                              {linha.dia}
+                            </th>
+                            <td className="py-2 text-right text-muted-foreground">
+                              {linha.horas}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  ) : (
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
+                      {item.a}
+                    </p>
+                  )}
                 </details>
               ))}
             </div>
