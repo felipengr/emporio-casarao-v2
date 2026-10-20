@@ -4,6 +4,7 @@ import { SobreSection } from '@/components/SobreSection';
 import { ProdutosDestaque } from '@/components/ProdutosDestaque';
 import { GaleriaSection } from '@/components/GaleriaSection';
 import { ContatoSection } from '@/components/ContatoSection';
+import { PiracaiaFaq } from '@/components/PiracaiaFaq';
 import { Footer } from '@/components/Footer';
 import { WhatsAppFloat } from '@/components/WhatsAppFloat';
 import { BackToTop } from '@/components/BackToTop';
@@ -34,6 +35,7 @@ export default async function Home() {
           instagramPhotos={instagramPhotos}
           instagramUrl={siteConfig.instagram}
         />
+        <PiracaiaFaq />
         <ContatoSection config={siteConfig} />
       </main>
       <Footer config={siteConfig} />

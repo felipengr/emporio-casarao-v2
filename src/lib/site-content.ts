@@ -14,11 +14,14 @@ export const siteConfig = {
 };
 
 export const seoConfig = {
-  siteTitle: 'Empório Casarão | Artesanato e Gastronomia de Piracaia - SP',
+  siteTitle: 'Empório Casarão | Empório e mercearia artesanal em Piracaia - SP',
   siteDescription:
-    'Empório de produtos artesanais em Piracaia, SP. Doces caseiros, queijos, antepastos e temperos que celebram a cultura e a gastronomia da nossa cidade. Venha conhecer!',
+    'Empório e mercearia no centro de Piracaia, SP: doces de leite, queijos, cafés especiais e produtos artesanais do interior. Uma parada para quem faz turismo em Piracaia e quer levar a cultura local para casa.',
   keywords: [
     'empório piracaia',
+    'mercado piracaia',
+    'mercearia piracaia',
+    'turismo piracaia',
     'produtos artesanais',
     'doces caseiros',
     'antepastos',
@@ -37,7 +40,7 @@ export const seoConfig = {
     'sabores da serra da mantiqueira',
   ],
   siteUrl: 'https://emporiocasarao.com.br',
-  ogImage: '/images/og-image.jpg',
+  ogImage: '/images/i1.jpg',
   twitterCard: 'summary_large_image',
   twitterHandle: '@emporiocasarao',
 };
