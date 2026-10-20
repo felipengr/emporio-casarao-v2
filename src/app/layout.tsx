@@ -35,8 +35,11 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        {/* GTM e gtag.js carregam depois do load para não disputar banda com
+            a imagem principal. O stub do gtag abaixo continua afterInteractive,
+            então eventos disparados antes disso ficam na fila do dataLayer. */}
         {/* Google Tag Manager */}
-        <Script id="google-tag-manager" strategy="afterInteractive">
+        <Script id="google-tag-manager" strategy="lazyOnload">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -49,7 +52,7 @@ export default function RootLayout({
         {/* Google Analytics */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
