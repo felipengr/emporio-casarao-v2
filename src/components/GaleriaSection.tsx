@@ -72,7 +72,7 @@ export function GaleriaSection({
                 src={photo.image}
                 alt={photo.caption ?? `${t.galeria.title} ${index + 1}`}
                 fill
-                sizes="(min-width: 640px) 33vw, 100vw"
+                sizes="(min-width: 640px) 33vw, 82vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
             );

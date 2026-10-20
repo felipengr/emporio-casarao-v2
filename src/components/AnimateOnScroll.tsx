@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, ReactNode } from 'react';
-import { motion, useInView, useAnimation } from 'framer-motion';
+import { type ReactNode, useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 
 interface AnimateOnScrollProps {
   children: ReactNode;
@@ -9,41 +9,52 @@ interface AnimateOnScrollProps {
   delay?: number;
 }
 
-export function AnimateOnScroll({ 
-  children, 
+// Fade + subida ao entrar na tela. Usa IntersectionObserver e transição CSS
+// em vez do framer-motion, que pesava ~40 KB de JS no carregamento da home.
+export function AnimateOnScroll({
+  children,
   className = "",
-  delay = 0 
+  delay = 0,
 }: AnimateOnScrollProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const controls = useAnimation();
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (isInView) {
-      controls.start('visible');
+    const element = ref.current;
+    if (!element) return;
+
+    if (typeof IntersectionObserver === "undefined") {
+      setIsVisible(true);
+      return;
     }
-  }, [isInView, controls]);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -100px 0px" },
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      className={className}
-      initial="hidden"
-      animate={controls}
-      variants={{
-        hidden: { opacity: 0, y: 50 },
-        visible: { 
-          opacity: 1, 
-          y: 0,
-          transition: {
-            duration: 0.6,
-            delay: delay,
-            ease: "easeOut"
-          }
-        }
-      }}
+      className={cn(
+        "transition-[opacity,translate] duration-[600ms] ease-out motion-reduce:transition-none",
+        isVisible
+          ? "translate-y-0 opacity-100"
+          : "translate-y-[50px] opacity-0",
+        className,
+      )}
+      style={delay ? { transitionDelay: `${delay}s` } : undefined}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
