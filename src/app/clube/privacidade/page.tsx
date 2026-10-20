@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import { LegalSections } from "@/components/LegalSections";
 import { generateSeoMetadata } from "@/components/SEO";
-import {
-  politicaPrivacidadeClube,
-  privacidadeAtualizadaEm,
-} from "@/lib/clube-content";
 import { seoConfig, siteConfig } from "@/lib/site-content";
 
 export function generateMetadata(): Metadata {
@@ -18,11 +14,5 @@ export function generateMetadata(): Metadata {
 }
 
 export default function PrivacidadeClubePage() {
-  return (
-    <LegalSections
-      titulo="Política de Privacidade do Clube Casarão"
-      atualizadoEm={privacidadeAtualizadaEm}
-      secoes={politicaPrivacidadeClube}
-    />
-  );
+  return <LegalSections documento="privacidade" />;
 }

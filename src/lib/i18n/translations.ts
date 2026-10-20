@@ -134,6 +134,43 @@ const pt = {
     galeria: 'Ver galeria',
     contato: 'Entrar em contato',
   },
+  clube: {
+    eyebrow: 'Clube Casarão',
+    title: 'Seu carinho volta em forma de vantagens.',
+    intro:
+      'O Clube Casarão é o programa de fidelidade gratuito do Empório Casarão. A cada compra, você envia a nota fiscal pelo app e recebe parte do valor de volta em cashback, para usar na próxima visita — além de promoções exclusivas para quem faz parte.',
+    beneficios: {
+      cashback: {
+        titulo: 'Cashback de verdade',
+        descricao: 'Envie a nota da sua compra e parte do valor volta para você, pronto para usar na loja.',
+      },
+      promocoes: {
+        titulo: 'Promoções exclusivas',
+        descricao: 'Ofertas especiais, só para quem é do clube, direto no app.',
+      },
+      avisos: {
+        titulo: 'Avisos na hora certa',
+        descricao: 'Notificação quando o cashback é aprovado e antes dele vencer.',
+      },
+    },
+    joinTitle: 'Venha fazer parte do clube',
+    joinText:
+      'O app do Clube Casarão está em preparação para a App Store e o Google Play. Assim que estiver disponível, os links de download aparecem aqui. Por enquanto, cadastre-se pessoalmente na loja e já comece a acumular cashback.',
+    comingSoon: 'em breve',
+    helpTitle: 'Precisa de ajuda?',
+    helpText: 'Fale com a gente sobre o Clube Casarão, sua conta ou qualquer outra dúvida.',
+    regulamentoLink: 'Regulamento do clube',
+    privacidadeLink: 'Política de Privacidade do Clube Casarão',
+    excluirContaLink: 'Excluir minha conta',
+    backToClube: 'Voltar para o Clube Casarão',
+    updatedOn: 'Atualizado em',
+    translationNote: '',
+    documentos: {
+      regulamento: 'Regulamento do Clube Casarão',
+      privacidade: 'Política de Privacidade do Clube Casarão',
+      excluirConta: 'Excluir minha conta do Clube Casarão',
+    },
+  },
 };
 
 const en: typeof pt = {
@@ -264,6 +301,44 @@ const en: typeof pt = {
     galeria: 'View gallery',
     contato: 'Get in touch',
   },
+  clube: {
+    eyebrow: 'Clube Casarão',
+    title: 'Your loyalty comes back as rewards.',
+    intro:
+      'Clube Casarão is the free loyalty program of Empório Casarão. After each purchase, you send the receipt through the app and get part of the amount back as cashback to use on your next visit, plus exclusive deals for members.',
+    beneficios: {
+      cashback: {
+        titulo: 'Real cashback',
+        descricao: 'Send the receipt for your purchase and part of the amount comes back to you, ready to use in the store.',
+      },
+      promocoes: {
+        titulo: 'Exclusive deals',
+        descricao: 'Special offers just for club members, right in the app.',
+      },
+      avisos: {
+        titulo: 'Timely alerts',
+        descricao: 'A notification when your cashback is approved and before it expires.',
+      },
+    },
+    joinTitle: 'Join the club',
+    joinText:
+      'The Clube Casarão app is being prepared for the App Store and Google Play. As soon as it is available, the download links will show up here. For now, sign up in person at the store and start earning cashback right away.',
+    comingSoon: 'coming soon',
+    helpTitle: 'Need help?',
+    helpText: 'Talk to us about Clube Casarão, your account or anything else.',
+    regulamentoLink: 'Club rules',
+    privacidadeLink: 'Clube Casarão Privacy Policy',
+    excluirContaLink: 'Delete my account',
+    backToClube: 'Back to Clube Casarão',
+    updatedOn: 'Updated on',
+    translationNote:
+      'This translation is provided for convenience. In case of any discrepancy, the Portuguese version prevails.',
+    documentos: {
+      regulamento: 'Clube Casarão Rules',
+      privacidade: 'Clube Casarão Privacy Policy',
+      excluirConta: 'Delete my Clube Casarão account',
+    },
+  },
 };
 
 const es: typeof pt = {
@@ -393,6 +468,44 @@ const es: typeof pt = {
     historia: 'Conocer nuestra historia',
     galeria: 'Ver galería',
     contato: 'Contáctanos',
+  },
+  clube: {
+    eyebrow: 'Clube Casarão',
+    title: 'Tu cariño vuelve en forma de ventajas.',
+    intro:
+      'El Clube Casarão es el programa de fidelidad gratuito del Empório Casarão. En cada compra, envías el ticket fiscal por la app y recibes parte del importe de vuelta en cashback, para usar en tu próxima visita, además de promociones exclusivas para los socios.',
+    beneficios: {
+      cashback: {
+        titulo: 'Cashback de verdad',
+        descricao: 'Envía el ticket de tu compra y parte del importe vuelve a ti, listo para usar en la tienda.',
+      },
+      promocoes: {
+        titulo: 'Promociones exclusivas',
+        descricao: 'Ofertas especiales, solo para socios del club, directamente en la app.',
+      },
+      avisos: {
+        titulo: 'Avisos en el momento justo',
+        descricao: 'Una notificación cuando se aprueba tu cashback y antes de que venza.',
+      },
+    },
+    joinTitle: 'Únete al club',
+    joinText:
+      'La app del Clube Casarão se está preparando para la App Store y Google Play. En cuanto esté disponible, los enlaces de descarga aparecerán aquí. Por ahora, regístrate en persona en la tienda y empieza a acumular cashback.',
+    comingSoon: 'próximamente',
+    helpTitle: '¿Necesitas ayuda?',
+    helpText: 'Habla con nosotros sobre el Clube Casarão, tu cuenta o cualquier otra duda.',
+    regulamentoLink: 'Reglamento del club',
+    privacidadeLink: 'Política de Privacidad del Clube Casarão',
+    excluirContaLink: 'Eliminar mi cuenta',
+    backToClube: 'Volver al Clube Casarão',
+    updatedOn: 'Actualizado el',
+    translationNote:
+      'Esta traducción se ofrece por conveniencia. En caso de discrepancia, prevalece la versión en portugués.',
+    documentos: {
+      regulamento: 'Reglamento del Clube Casarão',
+      privacidade: 'Política de Privacidad del Clube Casarão',
+      excluirConta: 'Eliminar mi cuenta del Clube Casarão',
+    },
   },
 };
 

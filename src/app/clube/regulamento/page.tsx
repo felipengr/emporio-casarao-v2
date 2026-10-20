@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { LegalSections } from "@/components/LegalSections";
 import { generateSeoMetadata } from "@/components/SEO";
-import { regulamentoAtualizadoEm, regulamentoClube } from "@/lib/clube-content";
 import { seoConfig, siteConfig } from "@/lib/site-content";
 
 export function generateMetadata(): Metadata {
@@ -15,11 +14,5 @@ export function generateMetadata(): Metadata {
 }
 
 export default function RegulamentoClubePage() {
-  return (
-    <LegalSections
-      titulo="Regulamento do Clube Casarão"
-      atualizadoEm={regulamentoAtualizadoEm}
-      secoes={regulamentoClube}
-    />
-  );
+  return <LegalSections documento="regulamento" />;
 }
