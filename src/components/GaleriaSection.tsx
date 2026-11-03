@@ -81,7 +81,7 @@ export function GaleriaSection({
               <AnimateOnScroll
                 key={photo.image}
                 delay={index * 0.1}
-                className="group relative aspect-[400/245] w-[82%] shrink-0 snap-start overflow-hidden rounded-[20px] bg-muted sm:w-auto"
+                className="group relative aspect-square w-[82%] shrink-0 snap-start overflow-hidden rounded-[20px] bg-muted sm:w-auto"
               >
                 {photo.permalink ? (
                   <a
