@@ -13,6 +13,7 @@ const pt = {
     galeria: "O Casarão",
     contato: "Visite-nos",
     clube: "Clube Casarão",
+    entrar: "Entrar",
   },
   languageSwitcher: {
     label: "Selecionar idioma",
@@ -280,6 +281,7 @@ const en: typeof pt = {
     galeria: "The Casarão",
     contato: "Visit us",
     clube: "Casarão Club",
+    entrar: "Sign in",
   },
   languageSwitcher: {
     label: "Select language",
@@ -543,6 +545,7 @@ const es: typeof pt = {
     galeria: "El Casarão",
     contato: "Visítanos",
     clube: "Club Casarão",
+    entrar: "Iniciar sesión",
   },
   languageSwitcher: {
     label: "Seleccionar idioma",

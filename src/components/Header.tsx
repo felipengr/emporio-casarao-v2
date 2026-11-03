@@ -1,5 +1,6 @@
 "use client";
 
+import { LogIn } from "lucide-react";
 import Link from "next/link";
 import { trackEvent } from "@/components/Analytics";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
@@ -41,7 +42,9 @@ export function Header({ config }: HeaderProps) {
           <span className="text-[11px] uppercase tracking-[0.12em] text-highlight">
             Empório
           </span>
-          <span className="font-serif text-[29px] text-foreground">Casarão</span>
+          <span className="font-serif text-[29px] text-foreground">
+            Casarão
+          </span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-8 lg:gap-10">
@@ -59,6 +62,17 @@ export function Header({ config }: HeaderProps) {
         <div className="flex items-center gap-2 md:gap-4">
           <LanguageSwitcher className="hidden md:flex" />
           <ThemeToggle />
+
+          <Button
+            asChild
+            variant="outline"
+            className="hidden md:inline-flex h-12 rounded-full px-5 text-sm"
+          >
+            <Link href="/clube/entrar">
+              <LogIn className="h-4 w-4" />
+              {t.nav.entrar}
+            </Link>
+          </Button>
 
           <Button
             asChild
