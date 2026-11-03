@@ -191,8 +191,9 @@ const pt = {
     },
     joinTitle: 'Venha fazer parte do clube',
     joinText:
-      'O app do Clube Casarão está em preparação para a App Store e o Google Play. Assim que estiver disponível, os links de download aparecem aqui. Por enquanto, cadastre-se pessoalmente na loja e já comece a acumular cashback.',
+      'O app do Clube Casarão já está disponível para Android. A versão para iPhone está em preparação para a App Store. Por enquanto, cadastre-se pessoalmente na loja e já comece a acumular cashback.',
     comingSoon: 'em breve',
+    googlePlayLink: 'Baixar no Google Play',
     helpTitle: 'Precisa de ajuda?',
     helpText: 'Fale com a gente sobre o Clube Casarão, sua conta ou qualquer outra dúvida.',
     regulamentoLink: 'Regulamento do clube',
@@ -394,8 +395,9 @@ const en: typeof pt = {
     },
     joinTitle: 'Join the club',
     joinText:
-      'The Clube Casarão app is being prepared for the App Store and Google Play. As soon as it is available, the download links will show up here. For now, sign up in person at the store and start earning cashback right away.',
+      'The Clube Casarão app is already available for Android. The iPhone version is being prepared for the App Store. For now, sign up in person at the store and start earning cashback right away.',
     comingSoon: 'coming soon',
+    googlePlayLink: 'Download on Google Play',
     helpTitle: 'Need help?',
     helpText: 'Talk to us about Clube Casarão, your account or anything else.',
     regulamentoLink: 'Club rules',
@@ -598,8 +600,9 @@ const es: typeof pt = {
     },
     joinTitle: 'Únete al club',
     joinText:
-      'La app del Clube Casarão se está preparando para la App Store y Google Play. En cuanto esté disponible, los enlaces de descarga aparecerán aquí. Por ahora, regístrate en persona en la tienda y empieza a acumular cashback.',
+      'La app del Clube Casarão ya está disponible para Android. La versión para iPhone se está preparando para la App Store. Por ahora, regístrate en persona en la tienda y empieza a acumular cashback.',
     comingSoon: 'próximamente',
+    googlePlayLink: 'Descargar en Google Play',
     helpTitle: '¿Necesitas ayuda?',
     helpText: 'Habla con nosotros sobre el Clube Casarão, tu cuenta o cualquier otra duda.',
     regulamentoLink: 'Reglamento del club',
