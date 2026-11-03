@@ -64,10 +64,15 @@ export function ClubeContent() {
               <Apple className="h-4 w-4" />
               App Store · {t.clube.comingSoon}
             </span>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-muted-foreground">
+            <Link
+              href="https://play.google.com/store/apps/details?id=br.com.emporiocasarao.clube"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm transition-colors hover:text-highlight"
+            >
               <PlayCircle className="h-4 w-4" />
-              Google Play · {t.clube.comingSoon}
-            </span>
+              {t.clube.googlePlayLink}
+            </Link>
           </div>
         </div>
 
