@@ -104,7 +104,11 @@ export function FormularioEnviarNota({
   const valorReais = textoParaReais(valor);
 
   return (
-    <TelaClube sobretitulo="Ganhe cashback" titulo="Registre sua compra.">
+    <TelaClube
+      sobretitulo="Ganhe cashback"
+      titulo="Registre sua compra."
+      voltarPara="/clube/conta"
+    >
       <form onSubmit={enviar} className="flex flex-col gap-4">
         <label className="flex cursor-pointer flex-col items-center gap-2 rounded-3xl border-2 border-dashed border-highlight bg-highlight/5 p-6 text-center">
           {previa ? (

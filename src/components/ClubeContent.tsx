@@ -21,114 +21,120 @@ export function ClubeContent() {
   return (
     <div className="min-h-screen bg-background">
       <Header config={siteConfig} />
-      <div className="container max-w-3xl py-10 md:py-16">
-        <p className="text-[11px] uppercase tracking-[0.12em] text-highlight">
-          {t.clube.eyebrow}
-        </p>
-        <h1 className="mt-3 font-serif text-[29px] leading-tight md:text-[43px]">
-          {t.clube.title}
-        </h1>
-        <p className="mt-6 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
-          {t.clube.intro}
-        </p>
+      <div className="container py-10 md:py-16">
+        <div className="mx-auto max-w-3xl">
+          <p className="text-[11px] uppercase tracking-[0.12em] text-highlight">
+            {t.clube.eyebrow}
+          </p>
+          <h1 className="mt-3 font-serif text-[29px] leading-tight md:text-[43px]">
+            {t.clube.title}
+          </h1>
+          <p className="mt-6 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
+            {t.clube.intro}
+          </p>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-3">
-          {beneficios.map(({ icon: Icon, chave }) => (
-            <div key={chave} className="rounded-3xl bg-card p-6">
-              <Icon className="h-6 w-6 text-highlight" />
-              <p className="mt-4 font-serif text-lg">
-                {t.clube.beneficios[chave].titulo}
-              </p>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {t.clube.beneficios[chave].descricao}
-              </p>
+          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+            {beneficios.map(({ icon: Icon, chave }) => (
+              <div key={chave} className="rounded-3xl bg-card p-6">
+                <Icon className="h-6 w-6 text-highlight" />
+                <p className="mt-4 font-serif text-lg">
+                  {t.clube.beneficios[chave].titulo}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {t.clube.beneficios[chave].descricao}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 rounded-3xl bg-card p-6 md:p-8">
+            <p className="font-serif text-xl md:text-2xl">
+              {t.clube.joinTitle}
+            </p>
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
+              {t.clube.joinText}
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link
+                href="/clube/cadastro"
+                className="inline-flex items-center gap-2 rounded-full bg-highlight px-5 py-2.5 text-sm font-semibold text-highlight-foreground transition-opacity hover:opacity-90"
+              >
+                {t.clube.cadastrarBtn}
+              </Link>
+              <Link
+                href="/clube/entrar"
+                className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-semibold transition-colors hover:text-highlight"
+              >
+                {t.clube.entrarBtn}
+              </Link>
             </div>
-          ))}
-        </div>
 
-        <div className="mt-12 rounded-3xl bg-card p-6 md:p-8">
-          <p className="font-serif text-xl md:text-2xl">{t.clube.joinTitle}</p>
-          <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            {t.clube.joinText}
-          </p>
-
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Link
-              href="/clube/cadastro"
-              className="inline-flex items-center gap-2 rounded-full bg-highlight px-5 py-2.5 text-sm font-semibold text-highlight-foreground transition-opacity hover:opacity-90"
-            >
-              {t.clube.cadastrarBtn}
-            </Link>
-            <Link
-              href="/clube/entrar"
-              className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-semibold transition-colors hover:text-highlight"
-            >
-              {t.clube.entrarBtn}
-            </Link>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <span className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-muted-foreground">
+                <SiApple className="h-4 w-4" />
+                App Store · {t.clube.comingSoon}
+              </span>
+              <Link
+                href="https://play.google.com/store/apps/details?id=br.com.emporiocasarao.clube"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm transition-colors hover:text-highlight"
+              >
+                <SiGoogleplay className="h-4 w-4" />
+                {t.clube.googlePlayLink}
+              </Link>
+            </div>
           </div>
 
-          <div className="mt-4 flex flex-wrap gap-3">
-            <span className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-muted-foreground">
-              <SiApple className="h-4 w-4" />
-              App Store · {t.clube.comingSoon}
-            </span>
+          <div className="mt-12 rounded-3xl bg-card p-6 md:p-8">
+            <p className="font-serif text-xl md:text-2xl">
+              {t.clube.helpTitle}
+            </p>
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
+              {t.clube.helpText}
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link
+                href={`https://wa.me/${clubeControlador.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm transition-colors hover:text-highlight"
+              >
+                <Phone className="h-4 w-4" />
+                WhatsApp {clubeControlador.telefone}
+              </Link>
+              <Link
+                href={`mailto:${clubeControlador.email}`}
+                className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm transition-colors hover:text-highlight"
+              >
+                <Mail className="h-4 w-4" />
+                {clubeControlador.email}
+              </Link>
+            </div>
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm">
             <Link
-              href="https://play.google.com/store/apps/details?id=br.com.emporiocasarao.clube"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm transition-colors hover:text-highlight"
+              href="/clube/regulamento"
+              className="text-highlight underline underline-offset-4"
             >
-              <SiGoogleplay className="h-4 w-4" />
-              {t.clube.googlePlayLink}
+              {t.clube.regulamentoLink}
+            </Link>
+            <Link
+              href="/clube/privacidade"
+              className="text-highlight underline underline-offset-4"
+            >
+              {t.clube.privacidadeLink}
+            </Link>
+            <Link
+              href="/clube/excluir-conta"
+              className="text-highlight underline underline-offset-4"
+            >
+              {t.clube.excluirContaLink}
             </Link>
           </div>
-        </div>
-
-        <div className="mt-12 rounded-3xl bg-card p-6 md:p-8">
-          <p className="font-serif text-xl md:text-2xl">{t.clube.helpTitle}</p>
-          <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            {t.clube.helpText}
-          </p>
-
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Link
-              href={`https://wa.me/${clubeControlador.whatsapp}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm transition-colors hover:text-highlight"
-            >
-              <Phone className="h-4 w-4" />
-              WhatsApp {clubeControlador.telefone}
-            </Link>
-            <Link
-              href={`mailto:${clubeControlador.email}`}
-              className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm transition-colors hover:text-highlight"
-            >
-              <Mail className="h-4 w-4" />
-              {clubeControlador.email}
-            </Link>
-          </div>
-        </div>
-
-        <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-          <Link
-            href="/clube/regulamento"
-            className="text-highlight underline underline-offset-4"
-          >
-            {t.clube.regulamentoLink}
-          </Link>
-          <Link
-            href="/clube/privacidade"
-            className="text-highlight underline underline-offset-4"
-          >
-            {t.clube.privacidadeLink}
-          </Link>
-          <Link
-            href="/clube/excluir-conta"
-            className="text-highlight underline underline-offset-4"
-          >
-            {t.clube.excluirContaLink}
-          </Link>
         </div>
       </div>
       <Footer config={siteConfig} />
