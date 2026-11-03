@@ -23,6 +23,7 @@ export default async function PromocoesClubePage() {
     <TelaClube
       sobretitulo="Promoções"
       titulo="Só para membros."
+      voltarPara="/clube/conta"
       largura="max-w-2xl"
     >
       {promocoes.length === 0 ? (
