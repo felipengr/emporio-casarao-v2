@@ -1,6 +1,6 @@
 "use client";
 
-import { Instagram, Phone } from "lucide-react";
+import { Instagram, LogIn, Phone } from "lucide-react";
 import Link from "next/link";
 import { trackEvent } from "@/components/Analytics";
 import { Button } from "@/components/ui/button";
@@ -87,6 +87,13 @@ export default function MobileMenuPanel({
         </div>
 
         <div className="mt-6 space-y-4">
+          <Button asChild variant="outline" className="w-full" size="lg">
+            <Link href="/clube/entrar" onClick={handleLinkClick}>
+              <LogIn className="mr-2 h-5 w-5" />
+              {t.nav.entrar}
+            </Link>
+          </Button>
+
           <Button
             asChild
             className="w-full bg-primary hover:bg-primary/90"

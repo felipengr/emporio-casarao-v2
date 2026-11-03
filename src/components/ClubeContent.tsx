@@ -1,15 +1,8 @@
 "use client";
 
-import {
-  Apple,
-  Bell,
-  Mail,
-  Phone,
-  PlayCircle,
-  Tag,
-  Wallet,
-} from "lucide-react";
+import { Bell, Mail, Phone, Tag, Wallet } from "lucide-react";
 import Link from "next/link";
+import { SiApple, SiGoogleplay } from "react-icons/si";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { clubeControlador } from "@/lib/clube-content";
@@ -60,8 +53,23 @@ export function ClubeContent() {
           </p>
 
           <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              href="/clube/cadastro"
+              className="inline-flex items-center gap-2 rounded-full bg-highlight px-5 py-2.5 text-sm font-semibold text-highlight-foreground transition-opacity hover:opacity-90"
+            >
+              {t.clube.cadastrarBtn}
+            </Link>
+            <Link
+              href="/clube/entrar"
+              className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-semibold transition-colors hover:text-highlight"
+            >
+              {t.clube.entrarBtn}
+            </Link>
+          </div>
+
+          <div className="mt-4 flex flex-wrap gap-3">
             <span className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-muted-foreground">
-              <Apple className="h-4 w-4" />
+              <SiApple className="h-4 w-4" />
               App Store · {t.clube.comingSoon}
             </span>
             <Link
@@ -70,7 +78,7 @@ export function ClubeContent() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm transition-colors hover:text-highlight"
             >
-              <PlayCircle className="h-4 w-4" />
+              <SiGoogleplay className="h-4 w-4" />
               {t.clube.googlePlayLink}
             </Link>
           </div>
